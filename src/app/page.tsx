@@ -1,87 +1,65 @@
-'use client';
+"use client";
 
-import { Button } from '@/components/ui/button';
-import { Card, CardContent } from '@/components/ui/card';
-import { Input } from '@/components/ui/input';
-import { Textarea } from '@/components/ui/textarea';
+import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
+import { Input } from "@/components/ui/input";
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
+import contentData from "@/data/content.json";
 import {
-  GraduationCap,
   Globe,
   Award,
-  Users,
   MapPin,
-  BookOpen,
-  Briefcase,
-  Phone,
-  Mail,
-  Facebook,
-  Instagram,
-  Linkedin,
-  Youtube,
   ChevronRight,
-} from 'lucide-react';
+  GraduationCap,
+} from "lucide-react";
+import { useState, useEffect } from "react";
+import Link from "next/link";
 
 export default function Home() {
+  const [currentSlide, setCurrentSlide] = useState(0);
+
+  useEffect(() => {
+    const container = document.getElementById("carousel-container");
+    if (container) {
+      container.style.transform = `translateX(-${currentSlide * 100}%)`;
+    }
+
+    // Update active dot
+    const dots = document.querySelectorAll(".carousel-dot");
+    dots.forEach((dot, index) => {
+      dot.classList.toggle("active", index === currentSlide);
+    });
+  }, [currentSlide]);
+
+  // Auto-play functionality
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % 4);
+    }, 4000);
+
+    return () => clearInterval(interval);
+  }, []);
+
+  const awards = contentData.awards;
+
   return (
     <main className="min-h-screen">
-      <header className="border-b sticky top-0 bg-white z-50">
-        <div className="container mx-auto px-4 py-4 flex items-center justify-between">
-          <div className="flex items-center gap-2">
-            <GraduationCap className="h-8 w-8 text-primary" />
-            <span className="text-2xl font-bold text-primary">
-              NextStep Abroad
-            </span>
-          </div>
-          <nav className="hidden md:flex items-center gap-6">
-            <a href="#home" className="hover:text-primary transition-colors">
-              Home
-            </a>
-            <a href="#about" className="hover:text-primary transition-colors">
-              About
-            </a>
-            <a
-              href="#services"
-              className="hover:text-primary transition-colors"
-            >
-              Services
-            </a>
-            <a
-              href="#countries"
-              className="hover:text-primary transition-colors"
-            >
-              Countries
-            </a>
-            <a
-              href="#courses"
-              className="hover:text-primary transition-colors"
-            >
-              Courses
-            </a>
-            <a
-              href="#contact"
-              className="hover:text-primary transition-colors"
-            >
-              Contact
-            </a>
-            <Button className="bg-secondary hover:bg-secondary/90">
-              Get Started
-            </Button>
-          </nav>
-        </div>
-      </header>
+      <Navbar />
 
       <section
         id="home"
-        className="relative bg-linear-to-br from-primary to-primary/80 text-white py-20"
+        className="relative h-[95vh] flex items-center bg-linear-to-br from-primary to-primary/80 text-white"
         style={{
           backgroundImage: `url('https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=1200&h=600&fit=crop')`,
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          backgroundBlendMode: 'overlay'
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          backgroundBlendMode: "overlay",
         }}
       >
-        <div className="container mx-auto px-4 grid md:grid-cols-2 gap-12 items-center">
-          <div className="space-y-6">
+        <div className="absolute inset-0 bg-black/20"></div>
+        <div className="container mx-auto px-4 grid md:grid-cols-2 gap-12 items-center relative z-10">
+          <div className="space-y-6 p-6">
             <h1 className="text-5xl md:text-6xl font-bold leading-tight">
               Your Passport to
               <span className="text-secondary block">
@@ -99,25 +77,89 @@ export default function Home() {
               Start Your Journey
             </Button>
           </div>
-          <Card className="bg-white p-8">
-            <CardContent className="space-y-4 p-0">
-              <h3 className="text-2xl font-semibold text-primary">
-                Book a Free Consultation
+          <Card className="bg-white p-6">
+            <CardContent className="space-y-3 p-0">
+              <h3 className="text-xl font-semibold text-primary">
+                Book Free Counselling & Guidance
               </h3>
-              <Input placeholder="Full Name" />
-              <Input placeholder="Email Address" type="email" />
-              <Input placeholder="Phone Number" type="tel" />
-              <Input placeholder="Preferred Country" />
-              <Textarea placeholder="Your Message" rows={3} />
+              <div className="space-y-2">
+                <label className="text-sm font-medium text-primary">
+                  Name*
+                </label>
+                <Input placeholder="Enter your name" />
+              </div>
+              <div className="space-y-2">
+                <label className="text-sm font-medium text-primary">
+                  Email*
+                </label>
+                <Input placeholder="Enter your email" type="email" />
+              </div>
+              <div className="space-y-2">
+                <label className="text-sm font-medium text-primary">
+                  Phone*
+                </label>
+                <Input placeholder="Enter your number" type="tel" />
+              </div>
+              <div className="space-y-2">
+                <label className="text-sm font-medium text-primary">
+                  Country*
+                </label>
+                <Input placeholder="Enter your country" />
+              </div>
+              <div className="space-y-2">
+                <label className="text-sm font-medium text-primary">
+                  Service Type*
+                </label>
+                <select className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50">
+                  <option>Select Service Type</option>
+                  <option>Career Mentoring</option>
+                  <option>SAT Certification</option>
+                  <option>Study Abroad</option>
+                  <option>Study in India</option>
+                </select>
+              </div>
+              <div className="space-y-3">
+                <div className="flex items-start space-x-2">
+                  <input type="checkbox" id="terms" className="mt-1" />
+                  <label
+                    htmlFor="terms"
+                    className="text-sm text-muted-foreground"
+                  >
+                    NextStep Abroad will not share your details with others
+                    without your permission: I agree to NextStep Abroad Terms
+                    and privacy policy
+                  </label>
+                </div>
+                <div className="flex items-start space-x-2">
+                  <input type="checkbox" id="contact" className="mt-1" />
+                  <label
+                    htmlFor="contact"
+                    className="text-sm text-muted-foreground"
+                  >
+                    Please contact me by phone, email or SMS to assist with my
+                    enquiry
+                  </label>
+                </div>
+                <div className="flex items-start space-x-2">
+                  <input type="checkbox" id="updates" className="mt-1" />
+                  <label
+                    htmlFor="updates"
+                    className="text-sm text-muted-foreground"
+                  >
+                    I would like to receive updates and offers from NextStep
+                    Abroad
+                  </label>
+                </div>
+              </div>
               <Button className="w-full bg-secondary hover:bg-secondary/90">
-                Submit Enquiry
+                Book Now!
               </Button>
             </CardContent>
           </Card>
         </div>
       </section>
 
-      <section className="py-16 bg-muted/30">
+      <section className="py-16">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
             <div>
@@ -149,9 +191,6 @@ export default function Home() {
                 alt="Students studying together"
                 className="w-full h-full object-cover"
               />
-              <div className="absolute inset-0 bg-black/30 flex items-center justify-center">
-                <Users className="h-32 w-32 text-white/60" />
-              </div>
             </div>
             <div className="space-y-6">
               <h2 className="text-4xl font-bold text-primary">
@@ -185,7 +224,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="services" className="py-20 bg-muted/30">
+      <section id="services" className="py-20 bg-muted/80">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
             <h2 className="text-4xl font-bold text-primary mb-4">
@@ -197,51 +236,33 @@ export default function Home() {
             </p>
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            <Card className="hover:shadow-lg transition-shadow">
-              <CardContent className="p-6 space-y-4">
-                <div className="h-12 w-12 rounded-full bg-secondary/10 flex items-center justify-center">
-                  <GraduationCap className="h-6 w-6 text-secondary" />
+            {contentData.services.map((service, i) => {
+              const IconComponent =
+                service.icon === "GraduationCap"
+                  ? GraduationCap
+                  : service.icon === "Award"
+                  ? Award
+                  : service.icon === "Globe"
+                  ? Globe
+                  : MapPin;
+              return (
+                <div
+                  key={i}
+                  className="bg-white border border-gray-200 rounded-xl p-6 space-y-4 hover:shadow-xl hover:-translate-y-2 transition-all duration-300 group cursor-pointer"
+                >
+                  <div className="h-12 w-12 rounded-full bg-secondary/10 group-hover:bg-secondary/20 flex items-center justify-center transition-colors duration-300">
+                    <IconComponent className="h-6 w-6 text-secondary" />
+                  </div>
+                  <h3 className="text-xl font-semibold text-gray-800 group-hover:text-secondary transition-colors duration-300">
+                    {service.title}
+                  </h3>
+                  <p className="text-muted-foreground leading-relaxed">
+                    {service.description}
+                  </p>
+                  <div className="h-0.5 bg-linear-to-r from-transparent via-secondary/30 to-transparent group-hover:via-secondary transition-all duration-300"></div>
                 </div>
-                <h3 className="text-xl font-semibold">Career Mentoring</h3>
-                <p className="text-muted-foreground">
-                  Expert guidance to help you choose the right career path and
-                  achieve your goals
-                </p>
-              </CardContent>
-            </Card>
-            <Card className="hover:shadow-lg transition-shadow">
-              <CardContent className="p-6 space-y-4">
-                <div className="h-12 w-12 rounded-full bg-secondary/10 flex items-center justify-center">
-                  <Award className="h-6 w-6 text-secondary" />
-                </div>
-                <h3 className="text-xl font-semibold">SAT Certification</h3>
-                <p className="text-muted-foreground">
-                  Comprehensive preparation and training for SAT examinations
-                </p>
-              </CardContent>
-            </Card>
-            <Card className="hover:shadow-lg transition-shadow">
-              <CardContent className="p-6 space-y-4">
-                <div className="h-12 w-12 rounded-full bg-secondary/10 flex items-center justify-center">
-                  <Globe className="h-6 w-6 text-secondary" />
-                </div>
-                <h3 className="text-xl font-semibold">Study Abroad</h3>
-                <p className="text-muted-foreground">
-                  Complete support for studying in top universities worldwide
-                </p>
-              </CardContent>
-            </Card>
-            <Card className="hover:shadow-lg transition-shadow">
-              <CardContent className="p-6 space-y-4">
-                <div className="h-12 w-12 rounded-full bg-secondary/10 flex items-center justify-center">
-                  <MapPin className="h-6 w-6 text-secondary" />
-                </div>
-                <h3 className="text-xl font-semibold">Study in India</h3>
-                <p className="text-muted-foreground">
-                  Guidance for admission to premier Indian institutions
-                </p>
-              </CardContent>
-            </Card>
+              );
+            })}
           </div>
           <div className="text-center mt-12">
             <Button className="bg-primary hover:bg-primary/90">
@@ -253,110 +274,17 @@ export default function Home() {
 
       <section className="py-20">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold text-primary mb-4">
-              Consultation / Educational Support
-            </h2>
-            <p className="text-muted-foreground">
-              We provide comprehensive support throughout your journey
-            </p>
-          </div>
-          <div className="max-w-4xl mx-auto">
-            <Card>
-              <CardContent className="p-12">
-                <div className="relative h-64">
-                  <svg viewBox="0 0 400 200" className="w-full h-full">
-                    <g transform="translate(200, 100)">
-                      {[
-                        {
-                          angle: 0,
-                          label: 'Application\nProcess',
-                          color: '#1e3a8a',
-                        },
-                        {
-                          angle: 36,
-                          label: 'Visa\nAssistance',
-                          color: '#2563eb',
-                        },
-                        {
-                          angle: 72,
-                          label: 'Test\nPreparation',
-                          color: '#3b82f6',
-                        },
-                        {
-                          angle: 108,
-                          label: 'University\nSelection',
-                          color: '#60a5fa',
-                        },
-                        {
-                          angle: 144,
-                          label: 'Career\nCounseling',
-                          color: '#93c5fd',
-                        },
-                        {
-                          angle: 180,
-                          label: 'Financial\nAid',
-                          color: '#ff7e00',
-                        },
-                        {
-                          angle: 216,
-                          label: 'Scholarship\nGuidance',
-                          color: '#ff9933',
-                        },
-                        {
-                          angle: 252,
-                          label: 'Pre-departure\nBriefing',
-                          color: '#ffad5c',
-                        },
-                        {
-                          angle: 288,
-                          label: 'Post-arrival\nSupport',
-                          color: '#ffc285',
-                        },
-                        {
-                          angle: 324,
-                          label: 'Alumni\nNetwork',
-                          color: '#1e3a8a',
-                        },
-                      ].map((item, i) => {
-                        const startAngle = (item.angle - 18) * (Math.PI / 180);
-                        const endAngle = (item.angle + 18) * (Math.PI / 180);
-                        const largeArcFlag = 0;
-
-                        const x1 = 80 * Math.cos(startAngle);
-                        const y1 = 80 * Math.sin(startAngle);
-                        const x2 = 80 * Math.cos(endAngle);
-                        const y2 = 80 * Math.sin(endAngle);
-
-                        return (
-                          <path
-                            key={i}
-                            d={`M 0 0 L ${x1} ${y1} A 80 80 0 ${largeArcFlag} 1 ${x2} ${y2} Z`}
-                            fill={item.color}
-                            opacity="0.8"
-                            className="hover:opacity-100 transition-opacity cursor-pointer"
-                          />
-                        );
-                      })}
-                      <circle r="30" fill="white" />
-                      <text
-                        textAnchor="middle"
-                        dy="0.3em"
-                        className="text-xs font-semibold"
-                        fill="#1e3a8a"
-                      >
-                        Services
-                      </text>
-                    </g>
-                  </svg>
-                </div>
-              </CardContent>
-            </Card>
+          <div className="max-w-6xl mx-auto">
+            <img
+              src="/image.png"
+              alt="Educational consultation and support"
+              className="w-full h-auto"
+            />
           </div>
         </div>
       </section>
 
-      <section id="countries" className="py-20 bg-muted/30">
+      <section id="countries" className="py-20 bg-muted/80">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
             <h2 className="text-4xl font-bold text-primary mb-4">
@@ -366,36 +294,51 @@ export default function Home() {
               We have partnerships with universities across the globe
             </p>
           </div>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-8">
-            {[
-              { name: 'United States', image: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400&h=300&fit=crop' },
-              { name: 'United Kingdom', image: 'https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?w=400&h=300&fit=crop' },
-              { name: 'Australia', image: 'https://images.unsplash.com/photo-1523482580672-f109ba8cb9be?w=400&h=300&fit=crop' },
-              { name: 'Canada', image: 'https://images.unsplash.com/photo-1517935706615-2717063c2225?w=400&h=300&fit=crop' },
-            ].map((country, i) => (
-              <Card
-                key={i}
-                className="overflow-hidden group cursor-pointer hover:shadow-lg transition-shadow"
-              >
-                <div className="relative h-48 bg-muted">
+          <div className="relative overflow-hidden">
+            <div className="flex animate-marquee space-x-6">
+              {contentData.countries.slice(0, 6).map((country, i) => (
+                <div
+                  key={i}
+                  className="shrink-0 w-64 h-64 relative overflow-hidden group cursor-pointer rounded-lg shadow-lg hover:shadow-2xl transition-all duration-500"
+                >
                   <img
                     src={country.image}
                     alt={country.name}
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                   />
+                  <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                    <h3 className="text-white text-2xl font-bold text-center px-4">
+                      {country.name}
+                    </h3>
+                  </div>
                 </div>
-                <CardContent className="p-4 text-center">
-                  <h3 className="font-semibold group-hover:text-secondary transition-colors">
-                    {country.name}
-                  </h3>
-                </CardContent>
-              </Card>
-            ))}
+              ))}
+              {/* Duplicate for seamless loop */}
+              {contentData.countries.slice(0, 6).map((country, i) => (
+                <div
+                  key={`duplicate-${i}`}
+                  className="shrink-0 w-64 h-64 relative overflow-hidden group cursor-pointer rounded-lg shadow-lg hover:shadow-2xl transition-all duration-500"
+                >
+                  <img
+                    src={country.image}
+                    alt={country.name}
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                  />
+                  <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                    <h3 className="text-white text-2xl font-bold text-center px-4">
+                      {country.name}
+                    </h3>
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
-          <div className="text-center">
-            <Button variant="outline">
-              Discover More <ChevronRight className="ml-2 h-4 w-4" />
-            </Button>
+          <div className="text-center mt-8">
+            <Link href="/countries">
+              <Button variant="outline">
+                Discover More <ChevronRight className="ml-2 h-4 w-4" />
+              </Button>
+            </Link>
           </div>
         </div>
       </section>
@@ -411,57 +354,97 @@ export default function Home() {
             </p>
           </div>
           <div className="grid grid-cols-2 md:grid-cols-3 gap-6 mb-8">
-            {[
-              { name: 'Computer Science', icon: BookOpen, image: 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=400&h=300&fit=crop' },
-              { name: 'Business Management', icon: Briefcase, image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=300&fit=crop' },
-              { name: 'Engineering', icon: Award, image: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=400&h=300&fit=crop' },
-              { name: 'Medicine', icon: GraduationCap, image: 'https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=400&h=300&fit=crop' },
-              { name: 'Arts & Design', icon: Users, image: 'https://images.unsplash.com/photo-1513475382585-d06e58bcb0e0?w=400&h=300&fit=crop' },
-              { name: 'Data Science', icon: Globe, image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=400&h=300&fit=crop' },
-            ].map((course, i) => (
-              <Card
+            {contentData.courses.slice(0, 6).map((course, i) => (
+              <div
                 key={i}
-                className="overflow-hidden group cursor-pointer hover:shadow-lg transition-shadow"
+                className="bg-white border border-gray-200 rounded-lg overflow-hidden group cursor-pointer shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
               >
-                <div className="relative h-48 bg-linear-to-br from-primary/10 to-secondary/10 flex items-center justify-center">
+                <div className="relative h-52 bg-linear-to-br from-gray-50 to-gray-100 flex items-center justify-center overflow-hidden">
                   <img
                     src={course.image}
                     alt={course.name}
-                    className="absolute inset-0 w-full h-full object-cover"
+                    className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                   />
-                  <div className="absolute inset-0 bg-black/20"></div>
-                  <course.icon className="h-20 w-20 text-white relative z-10" />
+                  <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300"></div>
                 </div>
-                <CardContent className="p-4 text-center">
-                  <h3 className="font-semibold group-hover:text-secondary transition-colors">
+                <div className="p-6 text-center bg-white">
+                  <h3 className="font-semibold text-gray-800 group-hover:text-secondary transition-colors duration-300 text-lg">
                     {course.name}
                   </h3>
-                </CardContent>
-              </Card>
+                  <div className="mt-2 h-0.5 bg-linear-to-r from-transparent via-secondary/30 to-transparent group-hover:via-secondary transition-all duration-300"></div>
+                </div>
+              </div>
             ))}
           </div>
           <div className="text-center">
-            <Button variant="outline">
-              View All Courses <ChevronRight className="ml-2 h-4 w-4" />
-            </Button>
+            <Link href="/courses">
+              <Button variant="outline">
+                View All Courses <ChevronRight className="ml-2 h-4 w-4" />
+              </Button>
+            </Link>
           </div>
         </div>
       </section>
 
-      <section className="py-20 bg-primary text-white">
+      <section className="py-20 bg-primary">
         <div className="container mx-auto px-4">
-          <div className="relative h-64 bg-white/10 rounded-lg flex items-center justify-center">
-            <div className="absolute inset-0 flex items-center justify-center">
-              <Users className="h-32 w-32 text-white/10" />
+          <div className="relative overflow-hidden rounded-lg max-w-6xl mx-auto">
+            <div
+              className="flex animate-carousel h-[500px]"
+              id="carousel-container"
+            >
+              {contentData.carouselImages.map((image, i) => (
+                <div key={i} className="min-w-full relative">
+                  <img
+                    src={image}
+                    alt={`Educational content ${i + 1}`}
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+              ))}
             </div>
-            <div className="relative z-10 text-center">
-              <h2 className="text-3xl font-bold mb-4">
-                Experience Global Education Excellence
-              </h2>
-              <p className="text-lg text-white/90">
-                Join thousands of successful students worldwide
-              </p>
-            </div>
+
+            {/* Navigation Arrows */}
+            <button
+              className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-white/20 hover:bg-white/30 text-white p-3 rounded-full transition-all duration-300 backdrop-blur-sm z-10"
+              onClick={() => {
+                const container = document.getElementById("carousel-container");
+                if (container) {
+                  const currentTransform =
+                    container.style.transform || "translateX(0%)";
+                  const currentValue =
+                    parseInt(
+                      currentTransform
+                        .replace("translateX(", "")
+                        .replace("%)", "")
+                    ) || 0;
+                  const newValue = Math.min(currentValue + 100, 0);
+                  container.style.transform = `translateX(${newValue}%)`;
+                }
+              }}
+            >
+              <ChevronRight className="h-6 w-6 rotate-180" />
+            </button>
+            <button
+              className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-white/20 hover:bg-white/30 text-white p-3 rounded-full transition-all duration-300 backdrop-blur-sm z-10"
+              onClick={() => {
+                const container = document.getElementById("carousel-container");
+                if (container) {
+                  const currentTransform =
+                    container.style.transform || "translateX(0%)";
+                  const currentValue =
+                    parseInt(
+                      currentTransform
+                        .replace("translateX(", "")
+                        .replace("%)", "")
+                    ) || 0;
+                  const newValue = Math.max(currentValue - 100, -300);
+                  container.style.transform = `translateX(${newValue}%)`;
+                }
+              }}
+            >
+              <ChevronRight className="h-6 w-6" />
+            </button>
           </div>
         </div>
       </section>
@@ -470,30 +453,33 @@ export default function Home() {
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
             <h2 className="text-4xl font-bold text-primary mb-4">
-              UniThinkers Success Stories
+              NextStep Abroad Success Stories
             </h2>
             <p className="text-muted-foreground">
               Hear from students who achieved their dreams with us
             </p>
           </div>
           <div className="grid md:grid-cols-3 gap-8">
-            {[1, 2, 3].map((i) => (
+            {contentData.testimonials.map((testimonial, i) => (
               <Card key={i} className="hover:shadow-lg transition-shadow">
                 <CardContent className="p-6 space-y-4">
                   <div className="flex items-center gap-4">
-                    <div className="h-12 w-12 rounded-full bg-muted flex items-center justify-center">
-                      <Users className="h-6 w-6 text-muted-foreground" />
+                    <div className="h-12 w-12 rounded-full bg-muted flex items-center justify-center overflow-hidden">
+                      <img
+                        src={testimonial.image}
+                        alt={testimonial.name}
+                        className="w-full h-full object-cover"
+                      />
                     </div>
                     <div>
-                      <h4 className="font-semibold">Student Name</h4>
+                      <h4 className="font-semibold">{testimonial.name}</h4>
                       <p className="text-sm text-muted-foreground">
-                        University, Country
+                        {testimonial.university}, {testimonial.country}
                       </p>
                     </div>
                   </div>
-                  <p className="text-muted-foreground">
-                    NextStep Abroad made my dream of studying abroad a reality.
-                    Their guidance was invaluable throughout the entire process.
+                  <p className="text-muted-foreground italic">
+                    "{testimonial.testimonial}"
                   </p>
                 </CardContent>
               </Card>
@@ -513,17 +499,21 @@ export default function Home() {
             </p>
           </div>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-            {[1, 2, 3, 4, 5, 6, 7, 8].map((i) => (
+            {awards.map((award, i) => (
               <Card
                 key={i}
-                className="hover:shadow-lg transition-shadow bg-linear-to-br from-amber-50 to-amber-100 border-amber-200"
+                className="bg-white border-2 border-orange-500 rounded-xl shadow-md hover:shadow-xl transition-all duration-300"
               >
-                <CardContent className="p-6 text-center space-y-3">
-                  <Award className="h-12 w-12 text-amber-600 mx-auto" />
-                  <h4 className="font-semibold text-sm">Award Title</h4>
-                  <p className="text-xs text-muted-foreground">
-                    Organization Name
-                  </p>
+                <CardContent className="px-4 text-center space-y-3">
+                  <div className="h-24 w-24 mx-auto rounded-lg overflow-hidden">
+                    <img
+                      src={award.image}
+                      alt={award.title}
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                  <h4 className="font-semibold text-sm">{award.title}</h4>
+                  <p className="text-xs text-muted-foreground">{award.year}</p>
                 </CardContent>
               </Card>
             ))}
@@ -531,7 +521,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="contact" className="py-20 bg-muted/30">
+      <section id="contact" className="py-20 bg-muted/80">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
             <h2 className="text-4xl font-bold text-primary mb-4">
@@ -541,156 +531,37 @@ export default function Home() {
               Connect with us and stay updated on the latest opportunities
             </p>
           </div>
-          <div className="grid md:grid-cols-4 gap-6">
-            {[
-              {
-                title: 'Latest Updates',
-                description:
-                  'Stay informed about new programs and opportunities',
-              },
-              {
-                title: 'Success Stories',
-                description: 'Read inspiring stories from our students',
-              },
-              {
-                title: 'Expert Tips',
-                description:
-                  'Get valuable advice for your study abroad journey',
-              },
-              {
-                title: 'Events & Webinars',
-                description: 'Join our educational events and sessions',
-              },
-            ].map((item, i) => (
-              <Card key={i} className="hover:shadow-lg transition-shadow">
-                <div className="relative h-48 bg-linear-to-br from-primary/10 to-secondary/10 flex items-center justify-center">
-                  <BookOpen className="h-16 w-16 text-primary/40" />
+          <div className="grid md:grid-cols-3 gap-6">
+            {contentData.news.map((item, i) => (
+              <div
+                key={i}
+                className="bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow overflow-hidden"
+              >
+                <div className="relative h-48 overflow-hidden">
+                  <img
+                    src={item.image}
+                    alt={item.title}
+                    className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                  />
+                  <div className="absolute inset-0 bg-black/0 hover:bg-black/10 transition-colors duration-300"></div>
                 </div>
-                <CardContent className="p-6 space-y-2">
+                <div className="p-6 space-y-2">
                   <h3 className="font-semibold">{item.title}</h3>
-                  <p className="text-sm text-muted-foreground">
-                    {item.description}
-                  </p>
+                  <p className="text-muted-foreground">{item.description}</p>
                   <Button
                     variant="link"
-                    className="p-0 h-auto text-secondary hover:text-secondary/80"
+                    className="h-auto text-secondary hover:text-secondary/80 bg-secondary/10 hover:bg-secondary/20 px-3 py-2 rounded-md transition-colors"
                   >
                     Learn More <ChevronRight className="ml-1 h-4 w-4" />
                   </Button>
-                </CardContent>
-              </Card>
+                </div>
+              </div>
             ))}
           </div>
         </div>
       </section>
 
-      <footer className="bg-primary text-white py-12">
-        <div className="container mx-auto px-4">
-          <div className="grid md:grid-cols-5 gap-8 mb-8">
-            <div className="md:col-span-2">
-              <div className="flex items-center gap-2 mb-4">
-                <GraduationCap className="h-8 w-8 text-secondary" />
-                <span className="text-2xl font-bold">NextStep Abroad</span>
-              </div>
-              <p className="text-white/80 mb-4">
-                Your trusted partner for global education and career success.
-              </p>
-              <div className="flex gap-4">
-                <a
-                  href="#"
-                  className="h-10 w-10 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center transition-colors"
-                >
-                  <Facebook className="h-5 w-5" />
-                </a>
-                <a
-                  href="#"
-                  className="h-10 w-10 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center transition-colors"
-                >
-                  <Instagram className="h-5 w-5" />
-                </a>
-                <a
-                  href="#"
-                  className="h-10 w-10 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center transition-colors"
-                >
-                  <Linkedin className="h-5 w-5" />
-                </a>
-                <a
-                  href="#"
-                  className="h-10 w-10 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center transition-colors"
-                >
-                  <Youtube className="h-5 w-5" />
-                </a>
-              </div>
-            </div>
-            <div>
-              <h3 className="font-semibold text-lg mb-4">Quick Links</h3>
-              <ul className="space-y-2 text-white/80">
-                <li>
-                  <a
-                    href="#about"
-                    className="hover:text-secondary transition-colors"
-                  >
-                    About Us
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="#services"
-                    className="hover:text-secondary transition-colors"
-                  >
-                    Services
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="#countries"
-                    className="hover:text-secondary transition-colors"
-                  >
-                    Countries
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="#courses"
-                    className="hover:text-secondary transition-colors"
-                  >
-                    Courses
-                  </a>
-                </li>
-              </ul>
-            </div>
-            <div>
-              <h3 className="font-semibold text-lg mb-4">Services</h3>
-              <ul className="space-y-2 text-white/80">
-                <li>Career Counseling</li>
-                <li>Test Preparation</li>
-                <li>Visa Assistance</li>
-                <li>Scholarship Guidance</li>
-              </ul>
-            </div>
-            <div>
-              <h3 className="font-semibold text-lg mb-4">Contact</h3>
-              <ul className="space-y-3 text-white/80">
-                <li className="flex items-start gap-2">
-                  <Phone className="h-5 w-5 shrink-0 mt-0.5" />
-                  <span>+1 (234) 567-8900</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <Mail className="h-5 w-5 shrink-0 mt-0.5" />
-                  <span>info@nextstepabroad.com</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <MapPin className="h-5 w-5 shrink-0 mt-0.5" />
-                  <span>123 Education Street, Global City</span>
-                </li>
-              </ul>
-            </div>
-          </div>
-          <div className="border-t border-white/20 pt-8 text-center text-white/80">
-            <p>&copy; 2025 NextStep Abroad. All rights reserved.</p>
-          </div>
-        </div>
-      </footer>
+      <Footer />
     </main>
   );
 }

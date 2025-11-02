@@ -119,3 +119,54 @@
     color: hsl(var(--foreground));
   }
 }
+
+/* Marquee animation for country cards */
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  animation: marquee 30s linear infinite;
+}
+
+/* Carousel animation for image carousel */
+@keyframes carousel {
+  0% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(0);
+  }
+  30% {
+    transform: translateX(-100%);
+  }
+  55% {
+    transform: translateX(-100%);
+  }
+  60% {
+    transform: translateX(-200%);
+  }
+  85% {
+    transform: translateX(-200%);
+  }
+  90% {
+    transform: translateX(-300%);
+  }
+  100% {
+    transform: translateX(-300%);
+  }
+}
+
+.animate-carousel {
+  animation: carousel 16s infinite;
+  transition: transform 0.5s ease-in-out;
+}
+
+.animate-carousel:hover {
+  animation-play-state: paused;
+}
