@@ -28,8 +28,8 @@ export default function Contact() {
       city: "Bengaluru, Karnataka",
       address:
         "305, Tropical Terrace, Basavanagar, Doddanekkundi, Bangalore North, Bangalore - 560037, Karnataka",
-      phone: "+91 99635 21332 / +91 96635 70334",
-      email: "info@nextstepabroad.com",
+      phone: "+91 8961551100",
+      email: "nextstepabroad53@gmail.com",
     },
     {
       type: "HQ",
@@ -37,24 +37,24 @@ export default function Contact() {
       city: "Bengaluru, Karnataka",
       address:
         "305, Tropical Terrace, Basavanagar, Doddanekkundi, Bangalore North, Bangalore - 560037, Karnataka",
-      phone: "+91 99635 21332 / +91 96635 70334",
-      email: "info@nextstepabroad.com",
+      phone: "+91 8961551100",
+      email: "nextstepabroad53@gmail.com",
     },
     {
       type: "Office",
       name: "NextStep Abroad Nepal",
       city: "Makawanpur, Nepal",
       address: "Bhutan Devi Raod, Hetauda - 10, Makawanpur Nepal",
-      phone: "+91 99635 21332 / +91 96635 70334",
-      email: "info@nextstepabroad.com",
+      phone: "+91 8961551100",
+      email: "nextstepabroad53@gmail.com",
     },
     {
       type: "Office",
       name: "NextStep Abroad Jharkhand",
       city: "Bokaro, Jharkhand",
       address: "Vidya classes #42, FVI, Jharnadih, Chandrapura Bokaro",
-      phone: "+91 99635 21332 / +91 96635 70334",
-      email: "info@nextstepabroad.com",
+      phone: "+91 8961551100",
+      email: "nextstepabroad53@gmail.com",
     },
     {
       type: "Office",
@@ -62,8 +62,8 @@ export default function Contact() {
       city: "Purnea, Bihar",
       address:
         "Redchief Building, NH31,Opp-electricity board chowk Po&dist purnia-854301 Bihar.",
-      phone: "+91 99635 21332 / +91 96635 70334",
-      email: "info@nextstepabroad.com",
+      phone: "+91 8961551100",
+      email: "nextstepabroad53@gmail.com",
     },
     {
       type: "Office",
@@ -71,8 +71,8 @@ export default function Contact() {
       city: "Delhi, NCR",
       address:
         "Delhi NCR Jai Devi Vidya Mandir Public School, 427, 428, Wazirabad Rd, Bhopura, Sahibabad, Ghaziabad, Uttar Pradesh 201006",
-      phone: "+91 99635 21332 / +91 96635 70334",
-      email: "info@nextstepabroad.com",
+      phone: "+91 8961551100",
+      email: "nextstepabroad53@gmail.com",
     },
     {
       type: "Office",
@@ -80,8 +80,8 @@ export default function Contact() {
       city: "Dubai, UAE",
       address:
         "DSO – IFZA Dubai Digital Park Dubai Silicone Oasis P.O.Box 98601 Dubai, UAE",
-      phone: "+91 99635 21332 / +91 96635 70334",
-      email: "info@nextstepabroad.com",
+      phone: "+91 8961551100",
+      email: "nextstepabroad53@gmail.com",
     },
   ];
 
@@ -136,9 +136,7 @@ export default function Contact() {
               <CardContent className="p-6">
                 <Phone className="h-12 w-12 text-secondary mx-auto mb-4" />
                 <h3 className="font-semibold text-primary mb-2">Call Us</h3>
-                <p className="text-muted-foreground">
-                  +91 99635 21332 / +91 96635 70334
-                </p>
+                <p className="text-muted-foreground">+91 8961551100</p>
               </CardContent>
             </Card>
 
@@ -146,7 +144,9 @@ export default function Contact() {
               <CardContent className="p-6">
                 <Mail className="h-12 w-12 text-secondary mx-auto mb-4" />
                 <h3 className="font-semibold text-primary mb-2">Email</h3>
-                <p className="text-muted-foreground">info@nextstepabroad.com</p>
+                <p className="text-muted-foreground">
+                  nextstepabroad53@gmail.com
+                </p>
               </CardContent>
             </Card>
 
@@ -157,8 +157,9 @@ export default function Contact() {
                   Address (HQ)
                 </h3>
                 <p className="text-muted-foreground text-sm">
-                  305, Tropical Terrace, Basavanagar, Bengaluru Urban, 560037,
-                  Karnataka
+                  13 Camac Street Ground floor
+                  <br />
+                  Kolkata - 700017
                 </p>
               </CardContent>
             </Card>

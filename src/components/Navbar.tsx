@@ -10,12 +10,9 @@ export default function Navbar() {
 
   return (
     <header className="border-b sticky top-0 bg-white z-50">
-      <div className="container mx-auto px-4 py-4 flex items-center justify-between">
+      <div className="container mx-auto px-4 py-2 flex items-center justify-between">
         <Link href="/" className="flex items-center gap-2">
-          <GraduationCap className="h-8 w-8 text-primary" />
-          <span className="text-2xl font-bold text-primary">
-            NextStep Abroad
-          </span>
+          <img src="/logo.png" alt="NextStep Abroad Logo" className="w-36" />
         </Link>
 
         {/* Desktop Navigation */}

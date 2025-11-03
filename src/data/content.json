@@ -71,6 +71,26 @@
       "name": "India",
       "image": "https://images.unsplash.com/photo-1524492412937-b28074a5d7da?w=400&h=300&fit=crop",
       "description": "India offers a diverse and dynamic educational environment with a focus on technology, business, and humanities. With its rich cultural heritage, affordable tuition fees, and rapidly growing economy, India is an attractive destination for international students seeking quality education."
+    },
+    {
+      "name": "Poland",
+      "image": "https://images.unsplash.com/photo-1519197924294-4ba991a11128?w=400&h=300&fit=crop",
+      "description": "Offers high-quality education at affordable costs with a growing number of English-taught programs. Known for strong STEM education and beautiful historic cities."
+    },
+    {
+      "name": "Georgia",
+      "image": "https://images.unsplash.com/photo-1576013551627-0cc20b96c2a7?w=400&h=300&fit=crop",
+      "description": "Provides affordable education with a rich cultural heritage and growing international student community. Features universities with modern facilities and diverse programs."
+    },
+    {
+      "name": "Uzbekistan",
+      "image": "https://tse3.mm.bing.net/th/id/OIP.Lbk7jwBEcqbbCug-K348zQHaFj?rs=1&pid=ImgDetMain&o=7&rm=3",
+      "description": "Emerging destination for international education with affordable tuition fees and a unique blend of Central Asian culture. Tashkent and other cities offer modern universities with growing international programs."
+    },
+    {
+      "name": "Tashkent",
+      "image": "https://images.squarespace-cdn.com/content/v1/5940f2725016e1c79e469470/1539517290381-H404YPCSA5UTH0QXISGH/ke17ZwdGBToddI8pDm48kGPVK--wGoWXJsqwlxbZlQN7gQa3H78H3Y0txjaiv_0fDoOvxcdMmMKkDsyUqMSsMWxHk725yiiHCCLfrh8O1z4YTzHvnKhyp6Da-NYroOW3ZGjoBKy3azqku80C789l0mwONMR1ELp49Lyc52iWr5enfxu_O4VeONvneR-F6W8oeFhFqSrYyNrfPB9Y70_gvQ/Things+to+do+in+Tashkent",
+      "description": "Capital city of Uzbekistan offering modern educational facilities and international programs. Known for its blend of traditional culture and contemporary development."
     }
   ],
   "courses": [
