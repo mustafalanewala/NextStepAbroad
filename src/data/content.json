@@ -217,5 +217,37 @@
       "image": "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&h=150&fit=crop&crop=face",
       "testimonial": "From career counseling to university selection, NextStep Abroad provided comprehensive support. Their personalized approach helped me choose the perfect program that aligned with my goals."
     }
+  ],
+  "blogs": [
+    {
+      "title": "Explore key factors for choosing the right university and how to make an informed decision.",
+      "description": "Discover the essential criteria to evaluate universities and make choices that align with your academic and career goals.",
+      "image": "https://images.unsplash.com/photo-1565688534245-05d6b5be184a?w=400&h=300&fit=crop"
+    },
+    {
+      "title": "Learn effective study techniques to enhance academic performance and build successful study habits.",
+      "description": "Master proven study methods and habits that will boost your grades and make learning more efficient.",
+      "image": "https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=400&h=300&fit=crop"
+    },
+    {
+      "title": "Gain insights into various career options and how to align them with your skills and interests.",
+      "description": "Explore different career paths and learn how to match them with your strengths and passions for a fulfilling professional life.",
+      "image": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=300&fit=crop"
+    },
+    {
+      "title": "Discover communication strategies that improve collaboration between parents, teachers, and students.",
+      "description": "Learn effective communication techniques to foster better relationships and support systems in education.",
+      "image": "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=400&h=300&fit=crop"
+    },
+    {
+      "title": "Learn how to choose courses that align with your career aspirations through self-assessment, research, and strategic planning.",
+      "description": "Understand the process of selecting courses that will advance your career goals and personal development.",
+      "image": "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=400&h=300&fit=crop"
+    },
+    {
+      "title": "VTU introduces a new policy to ensure quality internships and prevent fraudulent activities by requiring registration on a centralized platform.",
+      "description": "Stay informed about the latest VTU policy changes designed to protect students and ensure legitimate internship opportunities.",
+      "image": "https://images.unsplash.com/photo-1552664730-d307ca884978?w=400&h=300&fit=crop"
+    }
   ]
 }

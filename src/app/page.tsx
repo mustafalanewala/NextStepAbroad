@@ -49,7 +49,7 @@ export default function Home() {
 
       <section
         id="home"
-        className="relative h-[95vh] flex items-center bg-linear-to-br from-primary to-primary/80 text-white"
+        className="relative min-h-[95vh] flex items-center bg-linear-to-br from-primary to-primary/80 text-white"
         style={{
           backgroundImage: `url('https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=1200&h=600&fit=crop')`,
           backgroundSize: "cover",
@@ -58,15 +58,15 @@ export default function Home() {
         }}
       >
         <div className="absolute inset-0 bg-black/20"></div>
-        <div className="container mx-auto px-4 grid md:grid-cols-2 gap-12 items-center relative z-10">
-          <div className="space-y-6 p-6">
-            <h1 className="text-5xl md:text-6xl font-bold leading-tight">
+        <div className="container mx-auto px-4 py-8 md:py-12 grid md:grid-cols-2 gap-8 md:gap-12 items-center relative z-10">
+          <div className="space-y-2 md:space-y-4 lg:space-y-6 p-4 md:p-6">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
               Your Passport to
               <span className="text-secondary block">
                 Global Education & Career Success
               </span>
             </h1>
-            <p className="text-lg text-white/90">
+            <p className="text-sm md:text-base lg:text-lg text-white/90">
               Expert guidance for studying abroad, career mentoring, and
               international opportunities
             </p>
@@ -77,36 +77,36 @@ export default function Home() {
               Start Your Journey
             </Button>
           </div>
-          <Card className="bg-white p-6">
-            <CardContent className="space-y-3 p-0">
-              <h3 className="text-xl font-semibold text-primary">
+          <Card className="bg-white p-4 md:p-6">
+            <CardContent className="space-y-2 md:space-y-3 p-0">
+              <h3 className="text-lg md:text-xl font-semibold text-primary">
                 Book Free Counselling & Guidance
               </h3>
-              <div className="space-y-2">
+              <div className="space-y-1 md:space-y-2">
                 <label className="text-sm font-medium text-primary">
                   Name*
                 </label>
                 <Input placeholder="Enter your name" />
               </div>
-              <div className="space-y-2">
+              <div className="space-y-1 md:space-y-2">
                 <label className="text-sm font-medium text-primary">
                   Email*
                 </label>
                 <Input placeholder="Enter your email" type="email" />
               </div>
-              <div className="space-y-2">
+              <div className="space-y-1 md:space-y-2">
                 <label className="text-sm font-medium text-primary">
                   Phone*
                 </label>
                 <Input placeholder="Enter your number" type="tel" />
               </div>
-              <div className="space-y-2">
+              <div className="space-y-1 md:space-y-2">
                 <label className="text-sm font-medium text-primary">
                   Country*
                 </label>
                 <Input placeholder="Enter your country" />
               </div>
-              <div className="space-y-2">
+              <div className="space-y-1 md:space-y-2">
                 <label className="text-sm font-medium text-primary">
                   Service Type*
                 </label>
@@ -118,12 +118,12 @@ export default function Home() {
                   <option>Study in India</option>
                 </select>
               </div>
-              <div className="space-y-3">
+              <div className="space-y-2 md:space-y-3">
                 <div className="flex items-start space-x-2">
                   <input type="checkbox" id="terms" className="mt-1" />
                   <label
                     htmlFor="terms"
-                    className="text-sm text-muted-foreground"
+                    className="text-xs md:text-sm text-muted-foreground"
                   >
                     NextStep Abroad will not share your details with others
                     without your permission: I agree to NextStep Abroad Terms
@@ -134,7 +134,7 @@ export default function Home() {
                   <input type="checkbox" id="contact" className="mt-1" />
                   <label
                     htmlFor="contact"
-                    className="text-sm text-muted-foreground"
+                    className="text-xs md:text-sm text-muted-foreground"
                   >
                     Please contact me by phone, email or SMS to assist with my
                     enquiry
@@ -144,7 +144,7 @@ export default function Home() {
                   <input type="checkbox" id="updates" className="mt-1" />
                   <label
                     htmlFor="updates"
-                    className="text-sm text-muted-foreground"
+                    className="text-xs md:text-sm text-muted-foreground"
                   >
                     I would like to receive updates and offers from NextStep
                     Abroad
@@ -185,7 +185,7 @@ export default function Home() {
       <section id="about" className="py-20">
         <div className="container mx-auto px-4">
           <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div className="relative h-96 rounded-lg overflow-hidden bg-muted">
+            <div className="relative h-64 md:h-96 rounded-lg overflow-hidden bg-muted">
               <img
                 src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=600&h=400&fit=crop"
                 alt="Students studying together"
@@ -295,11 +295,11 @@ export default function Home() {
             </p>
           </div>
           <div className="relative overflow-hidden">
-            <div className="flex animate-marquee space-x-6">
+            <div className="flex animate-[marquee_40s_linear_infinite] md:animate-[marquee_20s_linear_infinite] space-x-4 md:space-x-6">
               {contentData.countries.slice(0, 6).map((country, i) => (
                 <div
                   key={i}
-                  className="shrink-0 w-64 h-64 relative overflow-hidden group cursor-pointer rounded-lg shadow-lg hover:shadow-2xl transition-all duration-500"
+                  className="shrink-0 w-48 h-48 md:w-64 md:h-64 relative overflow-hidden group cursor-pointer rounded-lg shadow-lg hover:shadow-2xl transition-all duration-500"
                 >
                   <img
                     src={country.image}
@@ -317,7 +317,7 @@ export default function Home() {
               {contentData.countries.slice(0, 6).map((country, i) => (
                 <div
                   key={`duplicate-${i}`}
-                  className="shrink-0 w-64 h-64 relative overflow-hidden group cursor-pointer rounded-lg shadow-lg hover:shadow-2xl transition-all duration-500"
+                  className="shrink-0 w-48 h-48 md:w-64 md:h-64 relative overflow-hidden group cursor-pointer rounded-lg shadow-lg hover:shadow-2xl transition-all duration-500"
                 >
                   <img
                     src={country.image}
@@ -346,20 +346,20 @@ export default function Home() {
       <section id="courses" className="py-20">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold text-primary mb-4">
+            <h2 className="text-3xl md:text-4xl font-bold text-primary mb-4">
               Pick a course you like the most
             </h2>
             <p className="text-muted-foreground">
               Explore popular programs across various disciplines
             </p>
           </div>
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-6 mb-8">
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-6 mb-8">
             {contentData.courses.slice(0, 6).map((course, i) => (
               <div
                 key={i}
                 className="bg-white border border-gray-200 rounded-lg overflow-hidden group cursor-pointer shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
               >
-                <div className="relative h-52 bg-linear-to-br from-gray-50 to-gray-100 flex items-center justify-center overflow-hidden">
+                <div className="relative h-40 md:h-52 bg-linear-to-br from-gray-50 to-gray-100 flex items-center justify-center overflow-hidden">
                   <img
                     src={course.image}
                     alt={course.name}
@@ -367,8 +367,8 @@ export default function Home() {
                   />
                   <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300"></div>
                 </div>
-                <div className="p-6 text-center bg-white">
-                  <h3 className="font-semibold text-gray-800 group-hover:text-secondary transition-colors duration-300 text-lg">
+                <div className="p-4 md:p-6 text-center bg-white">
+                  <h3 className="font-semibold text-gray-800 group-hover:text-secondary transition-colors duration-300 text-base md:text-lg">
                     {course.name}
                   </h3>
                   <div className="mt-2 h-0.5 bg-linear-to-r from-transparent via-secondary/30 to-transparent group-hover:via-secondary transition-all duration-300"></div>
@@ -390,7 +390,7 @@ export default function Home() {
         <div className="container mx-auto px-4">
           <div className="relative overflow-hidden rounded-lg max-w-6xl mx-auto">
             <div
-              className="flex animate-carousel h-[500px]"
+              className="flex animate-carousel h-[300px] md:h-[500px]"
               id="carousel-container"
             >
               {contentData.carouselImages.map((image, i) => (

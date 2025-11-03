@@ -1,0 +1,63 @@
+"use client";
+
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
+import contentData from "@/data/content.json";
+import Link from "next/link";
+
+export default function Blogs() {
+  return (
+    <main className="min-h-screen">
+      <Navbar />
+      <section className="py-20">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-12">
+            <h2 className="text-4xl font-bold text-primary mb-4">
+              Latest Blogs & Insights
+            </h2>
+            <p className="text-muted-foreground max-w-2xl mx-auto">
+              Stay informed with our expert articles on education, career
+              guidance, and study abroad tips
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {contentData.blogs.map((blog, i) => (
+              <div
+                key={i}
+                className="group bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-500 overflow-hidden"
+              >
+                <div className="relative h-48 overflow-hidden">
+                  <img
+                    src={blog.image}
+                    alt={blog.title}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
+                  <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300"></div>
+                </div>
+                <div className="p-6">
+                  <Link
+                    href={`/blogs/${i + 1}`}
+                    className="text-xl font-semibold text-gray-800 mb-3 group-hover:text-secondary transition-colors duration-300 block"
+                  >
+                    {blog.title}
+                  </Link>
+                  <p className="text-muted-foreground text-sm leading-relaxed mb-4">
+                    {blog.description}
+                  </p>
+                  <Link
+                    href={`/blogs/${i + 1}`}
+                    className="text-secondary hover:text-secondary/80 font-medium text-sm transition-colors duration-300"
+                  >
+                    Read More →
+                  </Link>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+      <Footer />
+    </main>
+  );
+}
