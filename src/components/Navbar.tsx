@@ -47,9 +47,11 @@ export default function Navbar() {
           >
             Contact
           </Link>
-          <Button className="bg-secondary hover:bg-secondary/90">
-            Counselling
-          </Button>
+          <Link href="/counselling">
+            <Button className="bg-secondary hover:bg-secondary/90">
+              Counselling
+            </Button>
+          </Link>
         </nav>
 
         {/* Mobile Menu Button */}
@@ -106,9 +108,11 @@ export default function Navbar() {
               Contact
             </Link>
             <div className="pt-2">
-              <Button className="w-full bg-secondary hover:bg-secondary/90">
-                Counselling
-              </Button>
+              <Link href="/counselling">
+                <Button className="w-full bg-secondary hover:bg-secondary/90">
+                  Counselling
+                </Button>
+              </Link>
             </div>
           </nav>
         </div>

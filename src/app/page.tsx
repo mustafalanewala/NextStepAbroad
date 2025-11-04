@@ -70,12 +70,14 @@ export default function Home() {
               Expert guidance for studying abroad, career mentoring, and
               international opportunities
             </p>
-            <Button
-              size="lg"
-              className="bg-secondary hover:bg-secondary/90 text-white"
-            >
-              Start Your Journey
-            </Button>
+            <Link href="/contact">
+              <Button
+                size="lg"
+                className="bg-secondary hover:bg-secondary/90 text-white"
+              >
+                Start Your Journey
+              </Button>
+            </Link>
           </div>
           <Card className="bg-white p-4 md:p-6">
             <CardContent className="space-y-2 md:space-y-3 p-0">
@@ -151,9 +153,11 @@ export default function Home() {
                   </label>
                 </div>
               </div>
-              <Button className="w-full bg-secondary hover:bg-secondary/90">
-                Book Now!
-              </Button>
+              <Link href="/contact">
+                <Button className="w-full bg-secondary hover:bg-secondary/90">
+                  Book Now!
+                </Button>
+              </Link>
             </CardContent>
           </Card>
         </div>
@@ -216,9 +220,11 @@ export default function Home() {
                   <span>Application and documentation support</span>
                 </li>
               </ul>
-              <Button className="bg-secondary hover:bg-secondary/90">
-                Learn More
-              </Button>
+              <Link href="/contact">
+                <Button className="bg-secondary hover:bg-secondary/90">
+                  Learn More
+                </Button>
+              </Link>
             </div>
           </div>
         </div>
@@ -265,9 +271,11 @@ export default function Home() {
             })}
           </div>
           <div className="text-center mt-12">
-            <Button className="bg-primary hover:bg-primary/90">
-              Ready to start your journey?
-            </Button>
+            <Link href="/contact">
+              <Button className="bg-primary hover:bg-primary/90">
+                Ready to start your journey?
+              </Button>
+            </Link>
           </div>
         </div>
       </section>
@@ -386,69 +394,6 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="py-20 bg-primary">
-        <div className="container mx-auto px-4">
-          <div className="relative overflow-hidden rounded-lg max-w-6xl mx-auto">
-            <div
-              className="flex animate-carousel h-[300px] md:h-[500px]"
-              id="carousel-container"
-            >
-              {contentData.carouselImages.map((image, i) => (
-                <div key={i} className="min-w-full relative">
-                  <img
-                    src={image}
-                    alt={`Educational content ${i + 1}`}
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-              ))}
-            </div>
-
-            {/* Navigation Arrows */}
-            <button
-              className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-white/20 hover:bg-white/30 text-white p-3 rounded-full transition-all duration-300 backdrop-blur-sm z-10"
-              onClick={() => {
-                const container = document.getElementById("carousel-container");
-                if (container) {
-                  const currentTransform =
-                    container.style.transform || "translateX(0%)";
-                  const currentValue =
-                    parseInt(
-                      currentTransform
-                        .replace("translateX(", "")
-                        .replace("%)", "")
-                    ) || 0;
-                  const newValue = Math.min(currentValue + 100, 0);
-                  container.style.transform = `translateX(${newValue}%)`;
-                }
-              }}
-            >
-              <ChevronRight className="h-6 w-6 rotate-180" />
-            </button>
-            <button
-              className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-white/20 hover:bg-white/30 text-white p-3 rounded-full transition-all duration-300 backdrop-blur-sm z-10"
-              onClick={() => {
-                const container = document.getElementById("carousel-container");
-                if (container) {
-                  const currentTransform =
-                    container.style.transform || "translateX(0%)";
-                  const currentValue =
-                    parseInt(
-                      currentTransform
-                        .replace("translateX(", "")
-                        .replace("%)", "")
-                    ) || 0;
-                  const newValue = Math.max(currentValue - 100, -300);
-                  container.style.transform = `translateX(${newValue}%)`;
-                }
-              }}
-            >
-              <ChevronRight className="h-6 w-6" />
-            </button>
-          </div>
-        </div>
-      </section>
-
       <section className="py-20 bg-muted/30">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
@@ -548,12 +493,14 @@ export default function Home() {
                 <div className="p-6 space-y-2">
                   <h3 className="font-semibold">{item.title}</h3>
                   <p className="text-muted-foreground">{item.description}</p>
-                  <Button
-                    variant="link"
-                    className="h-auto text-secondary hover:text-secondary/80 bg-secondary/10 hover:bg-secondary/20 px-3 py-2 rounded-md transition-colors"
-                  >
-                    Learn More <ChevronRight className="ml-1 h-4 w-4" />
-                  </Button>
+                  <Link href="/blogs">
+                    <Button
+                      variant="link"
+                      className="h-auto text-secondary hover:text-secondary/80 bg-secondary/10 hover:bg-secondary/20 px-3 py-2 rounded-md transition-colors"
+                    >
+                      Learn More <ChevronRight className="ml-1 h-4 w-4" />
+                    </Button>
+                  </Link>
                 </div>
               </div>
             ))}

@@ -149,17 +149,19 @@ export default function About() {
         <div className="absolute inset-0 bg-black/20"></div>
         <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-4xl mx-auto text-center">
-            <h1 className="text-5xl md:text-6xl font-bold mb-6">
-              About UniThink
+            <div className="mb-4 md:mb-6">
+              <p className="text-lg md:text-xl lg:text-2xl font-semibold text-white/95 tracking-wide">
+                Shaping International Future
+              </p>
+            </div>
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 md:mb-6">
+              About NextStepAbroad
             </h1>
-            <p className="text-xl text-white/90 mb-8">
-              Where boundless learning meets global opportunities.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <div className="flex flex-col sm:flex-row gap-3 md:gap-4 justify-center px-4">
               <Link href="/contact">
                 <Button
                   size="lg"
-                  className="bg-secondary hover:bg-secondary/90 text-white"
+                  className="bg-secondary hover:bg-secondary/90 text-white w-full sm:w-auto"
                 >
                   Book a Free Counselling Session
                 </Button>
@@ -168,7 +170,7 @@ export default function About() {
                 <Button
                   size="lg"
                   variant="outline"
-                  className="border-2 border-white text-white bg-transparent hover:bg-white hover:text-primary transition-all duration-300"
+                  className="border-2 border-white text-white bg-transparent hover:bg-white hover:text-primary transition-all duration-300 w-full sm:w-auto"
                 >
                   Explore Services
                 </Button>
@@ -189,15 +191,17 @@ export default function About() {
       </section>
 
       {/* Stats Section */}
-      <section className="py-16">
+      <section className="py-12 md:py-16">
         <div className="container mx-auto px-4">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8 text-center">
             {stats.map((stat, i) => (
-              <div key={i} className="space-y-3">
-                <div className="text-4xl font-bold text-primary">
+              <div key={i} className="space-y-2 md:space-y-3">
+                <div className="text-3xl md:text-4xl font-bold text-primary">
                   {stat.number}
                 </div>
-                <div className="text-muted-foreground">{stat.label}</div>
+                <div className="text-sm md:text-base text-muted-foreground">
+                  {stat.label}
+                </div>
               </div>
             ))}
           </div>
@@ -205,43 +209,51 @@ export default function About() {
       </section>
 
       {/* Who We Are */}
-      <section className="py-20">
+      <section className="py-16 md:py-20">
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
-            <h2 className="text-4xl font-bold text-primary mb-8 text-center">
-              UniThink Team
+            <h2 className="text-3xl md:text-4xl font-bold text-primary mb-6 md:mb-8 text-center">
+              NextStepAbroad Team
             </h2>
-            <div className="grid md:grid-cols-2 gap-12 items-center">
-              <div className="space-y-6">
-                <h3 className="text-3xl font-bold text-primary">Who We Are</h3>
-                <p className="text-lg text-muted-foreground leading-relaxed">
-                  Unithink Education International Pvt. Ltd. is your global
-                  mentor for education and career guidance. With 25+ years of
-                  experience, we specialize in university selection, admissions,
-                  visa support, scholarships, and immigration guidance. We
-                  proudly partner with 1500+ universities worldwide, serving
-                  students across the US, Canada, UK, Australia, and 30+ more
-                  countries.
+            <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
+              <div className="space-y-4 md:space-y-6 order-2 md:order-1">
+                <h3 className="text-2xl md:text-3xl font-bold text-primary">
+                  Who We Are
+                </h3>
+                <p className="text-base md:text-lg text-muted-foreground leading-relaxed">
+                  NextStepAbroad Education International Pvt. Ltd. is your
+                  global mentor for education and career guidance. With 25+
+                  years of experience, we specialize in university selection,
+                  admissions, visa support, scholarships, and immigration
+                  guidance. We proudly partner with 1500+ universities
+                  worldwide, serving students across the US, Canada, UK,
+                  Australia, and 30+ more countries.
                 </p>
-                <div className="space-y-3">
+                <div className="space-y-2 md:space-y-3">
                   <div className="flex items-center gap-3">
-                    <CheckCircle className="h-5 w-5 text-secondary" />
-                    <span>Transparent Counselling</span>
+                    <CheckCircle className="h-4 w-4 md:h-5 md:w-5 text-secondary shrink-0" />
+                    <span className="text-sm md:text-base">
+                      Transparent Counselling
+                    </span>
                   </div>
                   <div className="flex items-center gap-3">
-                    <CheckCircle className="h-5 w-5 text-secondary" />
-                    <span>Scholarships & Visas</span>
+                    <CheckCircle className="h-4 w-4 md:h-5 md:w-5 text-secondary shrink-0" />
+                    <span className="text-sm md:text-base">
+                      Scholarships & Visas
+                    </span>
                   </div>
                   <div className="flex items-center gap-3">
-                    <CheckCircle className="h-5 w-5 text-secondary" />
-                    <span>Career Mentoring</span>
+                    <CheckCircle className="h-4 w-4 md:h-5 md:w-5 text-secondary shrink-0" />
+                    <span className="text-sm md:text-base">
+                      Career Mentoring
+                    </span>
                   </div>
                 </div>
               </div>
-              <div className="relative h-96 rounded-lg overflow-hidden bg-muted">
+              <div className="relative h-64 md:h-96 rounded-lg overflow-hidden bg-muted order-1 md:order-2">
                 <img
                   src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=600&h=400&fit=crop"
-                  alt="UniThink Team"
+                  alt="NextStepAbroad Team"
                   className="w-full h-full object-cover"
                 />
               </div>
@@ -251,20 +263,20 @@ export default function About() {
       </section>
 
       {/* Vision & Mission */}
-      <section className="py-20 bg-muted/30">
+      <section className="py-16 md:py-20 bg-muted/30">
         <div className="container mx-auto px-4">
-          <div className="grid md:grid-cols-2 gap-12">
+          <div className="grid md:grid-cols-2 gap-8 md:gap-12">
             <Card className="hover:shadow-lg transition-shadow">
-              <CardContent className="p-8">
-                <div className="flex items-center gap-4 mb-6">
-                  <div className="h-12 w-12 rounded-full bg-secondary/10 flex items-center justify-center">
-                    <Eye className="h-6 w-6 text-secondary" />
+              <CardContent className="p-6 md:p-8">
+                <div className="flex items-center gap-3 md:gap-4 mb-4 md:mb-6">
+                  <div className="h-10 w-10 md:h-12 md:w-12 rounded-full bg-secondary/10 flex items-center justify-center shrink-0">
+                    <Eye className="h-5 w-5 md:h-6 md:w-6 text-secondary" />
                   </div>
-                  <h3 className="text-2xl font-bold text-primary">
+                  <h3 className="text-xl md:text-2xl font-bold text-primary">
                     Our Vision
                   </h3>
                 </div>
-                <p className="text-muted-foreground leading-relaxed">
+                <p className="text-sm md:text-base text-muted-foreground leading-relaxed">
                   To serve as a lifelong education and career mentor, empowering
                   students to achieve global excellence and guiding them through
                   every stage of their academic and professional journey.
@@ -273,16 +285,16 @@ export default function About() {
             </Card>
 
             <Card className="hover:shadow-lg transition-shadow">
-              <CardContent className="p-8">
-                <div className="flex items-center gap-4 mb-6">
-                  <div className="h-12 w-12 rounded-full bg-secondary/10 flex items-center justify-center">
-                    <Target className="h-6 w-6 text-secondary" />
+              <CardContent className="p-6 md:p-8">
+                <div className="flex items-center gap-3 md:gap-4 mb-4 md:mb-6">
+                  <div className="h-10 w-10 md:h-12 md:w-12 rounded-full bg-secondary/10 flex items-center justify-center shrink-0">
+                    <Target className="h-5 w-5 md:h-6 md:w-6 text-secondary" />
                   </div>
-                  <h3 className="text-2xl font-bold text-primary">
+                  <h3 className="text-xl md:text-2xl font-bold text-primary">
                     Our Mission
                   </h3>
                 </div>
-                <p className="text-muted-foreground leading-relaxed">
+                <p className="text-sm md:text-base text-muted-foreground leading-relaxed">
                   To empower students worldwide with the tools, resources, and
                   guidance they need for admissions, scholarships, visa support,
                   and career growth—helping them confidently navigate the
@@ -295,34 +307,36 @@ export default function About() {
       </section>
 
       {/* Leadership Team */}
-      <section className="py-20">
+      <section className="py-16 md:py-20">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold text-primary mb-4">
+          <div className="text-center mb-8 md:mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-primary mb-3 md:mb-4">
               Leadership & Advisory Board
             </h2>
-            <p className="text-muted-foreground max-w-2xl mx-auto">
+            <p className="text-sm md:text-base text-muted-foreground max-w-2xl mx-auto">
               Meet the experts driving our mission forward
             </p>
           </div>
-          <div className="grid md:grid-cols-3 lg:grid-cols-5 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6 md:gap-8">
             {leadership.map((member, i) => (
               <Card
                 key={i}
                 className="hover:shadow-lg transition-shadow text-center"
               >
-                <CardContent className="p-6">
-                  <div className="h-24 w-24 mx-auto rounded-full bg-muted flex items-center justify-center overflow-hidden mb-4">
+                <CardContent className="p-4 md:p-6">
+                  <div className="h-20 w-20 md:h-24 md:w-24 mx-auto rounded-full bg-muted flex items-center justify-center overflow-hidden mb-3 md:mb-4">
                     <img
                       src={member.image}
                       alt={member.name}
                       className="w-full h-full object-cover"
                     />
                   </div>
-                  <h4 className="font-semibold text-primary mb-1">
+                  <h4 className="font-semibold text-primary mb-1 text-sm md:text-base">
                     {member.name}
                   </h4>
-                  <p className="text-sm text-muted-foreground">{member.role}</p>
+                  <p className="text-xs md:text-sm text-muted-foreground">
+                    {member.role}
+                  </p>
                 </CardContent>
               </Card>
             ))}
@@ -331,17 +345,17 @@ export default function About() {
       </section>
 
       {/* Services */}
-      <section id="services" className="py-20 bg-muted/30">
+      <section id="services" className="py-16 md:py-20 bg-muted/30">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold text-primary mb-4">
+          <div className="text-center mb-8 md:mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-primary mb-3 md:mb-4">
               Our Services
             </h2>
-            <p className="text-muted-foreground max-w-2xl mx-auto">
+            <p className="text-sm md:text-base text-muted-foreground max-w-2xl mx-auto">
               Comprehensive support for your educational journey
             </p>
           </div>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
             {services.map((service, i) => {
               const IconComponent = service.icon;
               return (
@@ -349,14 +363,14 @@ export default function About() {
                   key={i}
                   className="hover:shadow-lg hover:-translate-y-1 transition-all duration-300"
                 >
-                  <CardContent className="p-6 space-y-4">
-                    <div className="h-12 w-12 rounded-full bg-secondary/10 flex items-center justify-center">
-                      <IconComponent className="h-6 w-6 text-secondary" />
+                  <CardContent className="p-4 md:p-6 space-y-3 md:space-y-4">
+                    <div className="h-10 w-10 md:h-12 md:w-12 rounded-full bg-secondary/10 flex items-center justify-center">
+                      <IconComponent className="h-5 w-5 md:h-6 md:w-6 text-secondary" />
                     </div>
-                    <h3 className="text-xl font-semibold text-primary">
+                    <h3 className="text-lg md:text-xl font-semibold text-primary">
                       {service.title}
                     </h3>
-                    <p className="text-muted-foreground">
+                    <p className="text-sm md:text-base text-muted-foreground">
                       {service.description}
                     </p>
                   </CardContent>
@@ -368,20 +382,20 @@ export default function About() {
       </section>
 
       {/* SAS Certification */}
-      <section className="py-20">
+      <section className="py-16 md:py-20">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
-            <div className="text-center mb-12">
-              <h2 className="text-4xl font-bold text-primary mb-4">
+            <div className="text-center mb-8 md:mb-12">
+              <h2 className="text-3xl md:text-4xl font-bold text-primary mb-3 md:mb-4">
                 Certifications & Authorizations
               </h2>
-              <div className="bg-secondary text-white p-6 rounded-lg mb-8">
-                <p className="text-lg">
+              <div className="bg-secondary text-white p-4 md:p-6 rounded-lg mb-6 md:mb-8">
+                <p className="text-base md:text-lg">
                   As an SAS Authorized Partner, we deliver industry-aligned
                   training with verified curricula, hands-on labs, and exam
                   preparation designed to improve career outcomes.
                 </p>
-                <p className="mt-4">
+                <p className="mt-3 md:mt-4">
                   Our certified mentors and structured pathways ensure learners
                   gain practical, job-ready analytics skills recognized by
                   global employers.
@@ -389,23 +403,28 @@ export default function About() {
               </div>
             </div>
 
-            <div id="sas-courses" className="grid md:grid-cols-3 gap-8">
+            <div
+              id="sas-courses"
+              className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8"
+            >
               {sasSteps.map((step, i) => (
                 <Card key={i} className="hover:shadow-lg transition-shadow">
-                  <CardContent className="p-6 text-center">
-                    <div className="text-4xl font-bold text-secondary mb-4">
+                  <CardContent className="p-4 md:p-6 text-center">
+                    <div className="text-3xl md:text-4xl font-bold text-secondary mb-3 md:mb-4">
                       {step.step}
                     </div>
-                    <h4 className="text-xl font-semibold text-primary mb-2">
+                    <h4 className="text-lg md:text-xl font-semibold text-primary mb-2">
                       {step.title}
                     </h4>
-                    <p className="text-muted-foreground">{step.description}</p>
+                    <p className="text-sm md:text-base text-muted-foreground">
+                      {step.description}
+                    </p>
                   </CardContent>
                 </Card>
               ))}
             </div>
 
-            <div className="text-center mt-12">
+            <div className="text-center mt-8 md:mt-12">
               <Link href="/contact">
                 <Button size="lg" className="bg-primary hover:bg-primary/90">
                   Book a Free Counselling Session
