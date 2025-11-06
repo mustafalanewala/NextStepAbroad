@@ -24,129 +24,129 @@
   "countries": [
     {
       "name": "United States",
-      "image": "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400&h=300&fit=crop",
+      "image": "/countries/usa.png",
       "description": "Diverse and highly-ranked universities with a focus on innovation and research. Competitive admissions and higher tuition fees compared to some other countries."
     },
     {
       "name": "United Kingdom",
-      "image": "https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?w=400&h=300&fit=crop",
+      "image": "/countries/uk.png",
       "description": "Houses some of the world's most prestigious universities, offering a wide range of programs and a unique cultural experience. Requires strong academic records."
     },
     {
       "name": "Australia",
-      "image": "https://images.unsplash.com/photo-1523482580672-f109ba8cb9be?w=400&h=300&fit=crop",
+      "image": "/countries/aus.png",
       "description": "Offers a vibrant and multicultural study environment with globally recognized universities. Emphasis on research and practical skills."
     },
     {
       "name": "Canada",
-      "image": "https://images.unsplash.com/photo-1517935706615-2717063c2225?w=400&h=300&fit=crop",
+      "image": "/countries/can.png",
       "description": "Provides affordable and high-quality education with a focus on diversity and inclusion. Strong reputation in fields like science, technology, and engineering."
     },
     {
       "name": "Germany",
-      "image": "https://images.unsplash.com/photo-1467269204594-9661b134dd2b?w=400&h=300&fit=crop",
+      "image": "/countries/ger.png",
       "description": "Boasts a strong public university system with excellent reputation and free tuition for most programs. Popular for engineering, science, and humanities."
     },
     {
       "name": "France",
-      "image": "https://images.unsplash.com/photo-1509439581779-6298f75bf6e5?w=400&h=300&fit=crop",
+      "image": "/countries/fra.png",
       "description": "Features public universities with free tuition for EU/EEA students and diverse programs in various fields, including renowned business schools."
     },
     {
       "name": "UAE",
-      "image": "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=400&h=300&fit=crop",
+      "image": "/countries/uae.png",
       "description": "Offers a mix of international branch campuses and local universities, catering to specific industries and fostering innovation. Focus on English-medium programs."
     },
     {
       "name": "Russia",
-      "image": "https://images.unsplash.com/photo-1547448415-e9f5b28e570d?w=400&h=300&fit=crop",
+      "image": "/countries/rus.png",
       "description": "Offers affordable tuition fees, a strong emphasis on STEM programs, and a rich cultural heritage in a vast country."
     },
     {
       "name": "Switzerland",
-      "image": "https://images.unsplash.com/photo-1530122037265-a5f1f91d3b99?w=400&h=300&fit=crop",
+      "image": "/countries/swt.png",
       "description": "Known for its world-renowned education system, top-ranking universities, high quality of life, and strong focus on research and innovation."
     },
     {
       "name": "India",
-      "image": "https://images.unsplash.com/photo-1524492412937-b28074a5d7da?w=400&h=300&fit=crop",
+      "image": "/countries/ind.png",
       "description": "India offers a diverse and dynamic educational environment with a focus on technology, business, and humanities. With its rich cultural heritage, affordable tuition fees, and rapidly growing economy, India is an attractive destination for international students seeking quality education."
     },
     {
       "name": "Poland",
-      "image": "https://images.unsplash.com/photo-1519197924294-4ba991a11128?w=400&h=300&fit=crop",
+      "image": "/countries/pol.png",
       "description": "Offers high-quality education at affordable costs with a growing number of English-taught programs. Known for strong STEM education and beautiful historic cities."
     },
     {
       "name": "Georgia",
-      "image": "https://images.unsplash.com/photo-1576013551627-0cc20b96c2a7?w=400&h=300&fit=crop",
+      "image": "/countries/geo.png",
       "description": "Provides affordable education with a rich cultural heritage and growing international student community. Features universities with modern facilities and diverse programs."
     },
     {
       "name": "Uzbekistan",
-      "image": "https://tse3.mm.bing.net/th/id/OIP.Lbk7jwBEcqbbCug-K348zQHaFj?rs=1&pid=ImgDetMain&o=7&rm=3",
+      "image": "/countries/uzb.png",
       "description": "Emerging destination for international education with affordable tuition fees and a unique blend of Central Asian culture. Tashkent and other cities offer modern universities with growing international programs."
     },
     {
       "name": "Tashkent",
-      "image": "https://images.squarespace-cdn.com/content/v1/5940f2725016e1c79e469470/1539517290381-H404YPCSA5UTH0QXISGH/ke17ZwdGBToddI8pDm48kGPVK--wGoWXJsqwlxbZlQN7gQa3H78H3Y0txjaiv_0fDoOvxcdMmMKkDsyUqMSsMWxHk725yiiHCCLfrh8O1z4YTzHvnKhyp6Da-NYroOW3ZGjoBKy3azqku80C789l0mwONMR1ELp49Lyc52iWr5enfxu_O4VeONvneR-F6W8oeFhFqSrYyNrfPB9Y70_gvQ/Things+to+do+in+Tashkent",
+      "image": "/countries/tas.png",
       "description": "Capital city of Uzbekistan offering modern educational facilities and international programs. Known for its blend of traditional culture and contemporary development."
     }
   ],
   "courses": [
     {
       "name": "Computer Science",
-      "image": "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=400&h=300&fit=crop",
+      "image": "/courses/cse.png",
       "description": "Study the principles of computing, programming, and information technology."
     },
     {
       "name": "Business Management",
-      "image": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=300&fit=crop",
+      "image": "/courses/buis.png",
       "description": "Learn the fundamentals of business management and administration."
     },
     {
       "name": "Engineering",
-      "image": "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=400&h=300&fit=crop",
+      "image": "/courses/eng.png",
       "description": "Understand the fundamentals of various engineering disciplines."
     },
     {
       "name": "Medicine",
-      "image": "https://images.unsplash.com/photo-1551190822-a9333d879b1f?w=400&h=300&fit=crop",
+      "image": "/courses/med.png",
       "description": "Study the science and practice of diagnosing, treating, and preventing diseases."
     },
     {
       "name": "Arts & Design",
-      "image": "https://images.unsplash.com/photo-1513475382585-d06e58bcb0e0?w=400&h=300&fit=crop",
+      "image": "/courses/art.png",
       "description": "Explore creative expression and design principles across various mediums."
     },
     {
       "name": "Data Science",
-      "image": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=400&h=300&fit=crop",
+      "image": "/courses/ds.png",
       "description": "Explore data analysis, statistics, and machine learning techniques."
     },
     {
       "name": "Economics",
-      "image": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=400&h=300&fit=crop",
+      "image": "/courses/eco.png",
       "description": "Learn about economic theories, models, and their applications."
     },
     {
       "name": "Public Health",
-      "image": "https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=400&h=300&fit=crop",
+      "image": "/courses/pub.png",
       "description": "Explore the science and practice of protecting and improving community health."
     },
     {
       "name": "Psychology",
-      "image": "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&h=300&fit=crop",
+      "image": "/courses/psyc.png",
       "description": "Study human behavior and mental processes."
     },
     {
       "name": "Finance",
-      "image": "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=400&h=300&fit=crop",
+      "image": "/courses/fina.png",
       "description": "Understand financial management, investment, and markets."
     },
     {
       "name": "Law",
-      "image": "https://images.unsplash.com/photo-1589994965851-a8f479c573a9?w=400&h=300&fit=crop",
+      "image": "/courses/law.png",
       "description": "Learn about legal principles, systems, and practices."
     }
   ],
