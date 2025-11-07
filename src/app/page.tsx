@@ -46,6 +46,32 @@ export default function Home() {
 
   return (
     <main className="min-h-screen">
+      {/* Partnership Ticker */}
+      <div className="bg-secondary text-white py-2 overflow-hidden">
+        <div className="animate-marquee whitespace-nowrap">
+          <span className="inline-block px-4">
+            OFFICIAL CHANNEL PARTNER WITH{" "}
+            <strong>
+              UNILINK EDUCATION INTERNATIONAL PRIVATE LIMITED BANGALORE AND
+              MEDICOHUT
+            </strong>
+          </span>
+          <span className="inline-block px-4">
+            OFFICIAL CHANNEL PARTNER WITH{" "}
+            <strong>
+              UNILINK EDUCATION INTERNATIONAL PRIVATE LIMITED BANGALORE AND
+              MEDICOHUT
+            </strong>
+          </span>
+          <span className="inline-block px-4">
+            OFFICIAL CHANNEL PARTNER WITH{" "}
+            <strong>
+              UNILINK EDUCATION INTERNATIONAL PRIVATE LIMITED BANGALORE AND
+              MEDICOHUT
+            </strong>
+          </span>
+        </div>
+      </div>
       <Navbar />
       <section
         id="home"

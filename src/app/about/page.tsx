@@ -252,14 +252,20 @@ export default function About() {
                   Who We Are
                 </h3>
                 <p className="text-base md:text-lg text-muted-foreground leading-relaxed">
-                  NextStepAbroad Education International Pvt. Ltd. is your
-                  global mentor for education and career guidance. With 25+
-                  years of experience, we specialize in university selection,
-                  admissions, visa support, scholarships, and immigration
-                  guidance. We proudly partner with 1500+ universities
-                  worldwide, serving students across the US, Canada, UK,
-                  Australia, and 30+ more countries.
+                  NextStepAbroad Education International Pvt. Ltd. is global
+                  mentor for education and career guidance. We specialize in
+                  university selection, admissions, visa support, scholarships,
+                  and immigration guidance.
                 </p>
+                <div className="bg-secondary/10 border-l-4 border-secondary p-4 rounded-r-lg">
+                  <p className="text-sm md:text-base text-primary font-semibold">
+                    Official Channel Partner with{" "}
+                    <strong>
+                      UNILINK EDUCATION INTERNATIONAL PRIVATE LIMITED BANGALORE
+                      AND MEDICOHUT
+                    </strong>
+                  </p>
+                </div>
                 <div className="space-y-2 md:space-y-3">
                   <div className="flex items-center gap-3">
                     <CheckCircle className="h-4 w-4 md:h-5 md:w-5 text-secondary shrink-0" />
@@ -309,7 +315,7 @@ export default function About() {
               transition={{ duration: 0.6, delay: 0.1 }}
               viewport={{ once: true }}
             >
-              <Card className="hover:shadow-lg transition-shadow">
+              <Card className="hover:shadow-lg transition-shadow h-full">
                 <CardContent className="p-6 md:p-8">
                   <div className="flex items-center gap-3 md:gap-4 mb-4 md:mb-6">
                     <div className="h-10 w-10 md:h-12 md:w-12 rounded-full bg-secondary/10 flex items-center justify-center shrink-0">
@@ -335,7 +341,7 @@ export default function About() {
               transition={{ duration: 0.6, delay: 0.2 }}
               viewport={{ once: true }}
             >
-              <Card className="hover:shadow-lg transition-shadow">
+              <Card className="hover:shadow-lg transition-shadow h-full">
                 <CardContent className="p-6 md:p-8">
                   <div className="flex items-center gap-3 md:gap-4 mb-4 md:mb-6">
                     <div className="h-10 w-10 md:h-12 md:w-12 rounded-full bg-secondary/10 flex items-center justify-center shrink-0">
@@ -384,7 +390,7 @@ export default function About() {
                 transition={{ duration: 0.6, delay: i * 0.1 }}
                 viewport={{ once: true }}
               >
-                <Card className="hover:shadow-lg transition-shadow text-center">
+                <Card className="hover:shadow-lg transition-shadow text-center h-full">
                   <CardContent className="p-4 md:p-6">
                     <div className="h-20 w-20 md:h-24 md:w-24 mx-auto rounded-full bg-muted flex items-center justify-center overflow-hidden mb-3 md:mb-4">
                       <img
@@ -436,7 +442,7 @@ export default function About() {
                   transition={{ duration: 0.6, delay: i * 0.1 }}
                   viewport={{ once: true }}
                 >
-                  <Card className="hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
+                  <Card className="hover:shadow-lg hover:-translate-y-1 transition-all duration-300 h-full">
                     <CardContent className="p-4 md:p-6 space-y-3 md:space-y-4">
                       <div className="h-10 w-10 md:h-12 md:w-12 rounded-full bg-secondary/10 flex items-center justify-center">
                         <IconComponent className="h-5 w-5 md:h-6 md:w-6 text-secondary" />
@@ -496,7 +502,7 @@ export default function About() {
                   transition={{ duration: 0.6, delay: i * 0.1 }}
                   viewport={{ once: true }}
                 >
-                  <Card className="hover:shadow-lg transition-shadow">
+                  <Card className="hover:shadow-lg transition-shadow h-full">
                     <CardContent className="p-4 md:p-6 text-center">
                       <div className="text-3xl md:text-4xl font-bold text-secondary mb-3 md:mb-4">
                         {step.step}
