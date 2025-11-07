@@ -3,8 +3,8 @@ import {
   Phone,
   Mail,
   MapPin,
-  Facebook,
   Instagram,
+  MessageCircle,
 } from "lucide-react";
 import Link from "next/link";
 
@@ -23,13 +23,13 @@ export default function Footer() {
             </p>
             <div className="flex gap-4">
               <a
-                href="https://www.facebook.com"
+                href="https://wa.me/918961551100"
                 className="h-10 w-10 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center transition-colors"
               >
-                <Facebook className="h-5 w-5" />
+                <MessageCircle className="h-5 w-5" />
               </a>
               <a
-                href="https://www.instagram.com/nextstep_abroad_official"
+                href="https://www.instagram.com/nextstep_abroad_offical"
                 className="h-10 w-10 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center transition-colors"
               >
                 <Instagram className="h-5 w-5" />

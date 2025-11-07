@@ -4,14 +4,27 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import contentData from "@/data/content.json";
 import Link from "next/link";
+import { motion } from "framer-motion";
 
 export default function Blogs() {
   return (
     <main className="min-h-screen">
       <Navbar />
-      <section className="py-20">
+      <motion.section
+        className="py-20"
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, ease: "easeOut" }}
+        viewport={{ once: true }}
+      >
         <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
+          <motion.div
+            className="text-center mb-12"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            viewport={{ once: true }}
+          >
             <h2 className="text-4xl font-bold text-primary mb-4">
               Latest Blogs & Insights
             </h2>
@@ -19,13 +32,17 @@ export default function Blogs() {
               Stay informed with our expert articles on education, career
               guidance, and study abroad tips
             </p>
-          </div>
+          </motion.div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {contentData.blogs.map((blog, i) => (
-              <div
+              <motion.div
                 key={i}
                 className="group bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-500 overflow-hidden"
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: i * 0.1 }}
+                viewport={{ once: true }}
               >
                 <div className="relative h-48 overflow-hidden">
                   <img
@@ -52,11 +69,11 @@ export default function Blogs() {
                     Read More →
                   </Link>
                 </div>
-              </div>
+              </motion.div>
             ))}
           </div>
         </div>
-      </section>
+      </motion.section>
       <Footer />
     </main>
   );

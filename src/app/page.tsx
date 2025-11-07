@@ -15,6 +15,7 @@ import {
 } from "lucide-react";
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import { motion } from "framer-motion";
 
 export default function Home() {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -46,7 +47,6 @@ export default function Home() {
   return (
     <main className="min-h-screen">
       <Navbar />
-
       <section
         id="home"
         className="relative min-h-[95vh] flex items-center bg-linear-to-br from-primary to-primary/80 text-white"
@@ -59,7 +59,13 @@ export default function Home() {
       >
         <div className="absolute inset-0 bg-black/20"></div>
         <div className="container mx-auto px-4 py-8 md:py-12 grid md:grid-cols-2 gap-8 md:gap-12 items-center relative z-10">
-          <div className="space-y-2 md:space-y-4 lg:space-y-6 p-4 md:p-6">
+          <motion.div
+            className="space-y-2 md:space-y-4 lg:space-y-6 p-4 md:p-6"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            viewport={{ once: true }}
+          >
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
               Your Passport to
               <span className="text-secondary block">
@@ -78,125 +84,175 @@ export default function Home() {
                 Start Your Journey
               </Button>
             </Link>
-          </div>
-          <Card className="bg-white p-4 md:p-6">
-            <CardContent className="space-y-2 md:space-y-3 p-0">
-              <h3 className="text-lg md:text-xl font-semibold text-primary">
-                Book Free Counselling & Guidance
-              </h3>
-              <div className="space-y-1 md:space-y-2">
-                <label className="text-sm font-medium text-primary">
-                  Name*
-                </label>
-                <Input placeholder="Enter your name" />
-              </div>
-              <div className="space-y-1 md:space-y-2">
-                <label className="text-sm font-medium text-primary">
-                  Email*
-                </label>
-                <Input placeholder="Enter your email" type="email" />
-              </div>
-              <div className="space-y-1 md:space-y-2">
-                <label className="text-sm font-medium text-primary">
-                  Phone*
-                </label>
-                <Input placeholder="Enter your number" type="tel" />
-              </div>
-              <div className="space-y-1 md:space-y-2">
-                <label className="text-sm font-medium text-primary">
-                  Country*
-                </label>
-                <Input placeholder="Enter your country" />
-              </div>
-              <div className="space-y-1 md:space-y-2">
-                <label className="text-sm font-medium text-primary">
-                  Service Type*
-                </label>
-                <select className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50">
-                  <option>Select Service Type</option>
-                  <option>Career Mentoring</option>
-                  <option>SAT Certification</option>
-                  <option>Study Abroad</option>
-                  <option>Study in India</option>
-                </select>
-              </div>
-              <div className="space-y-2 md:space-y-3">
-                <div className="flex items-start space-x-2">
-                  <input type="checkbox" id="terms" className="mt-1" />
-                  <label
-                    htmlFor="terms"
-                    className="text-xs md:text-sm text-muted-foreground"
-                  >
-                    NextStep Abroad will not share your details with others
-                    without your permission: I agree to NextStep Abroad Terms
-                    and privacy policy
+          </motion.div>
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
+            viewport={{ once: true }}
+          >
+            <Card className="bg-white p-4 md:p-6">
+              <CardContent className="space-y-2 md:space-y-3 p-0">
+                <h3 className="text-lg md:text-xl font-semibold text-primary">
+                  Book Free Counselling & Guidance
+                </h3>
+                <div className="space-y-1 md:space-y-2">
+                  <label className="text-sm font-medium text-primary">
+                    Name*
                   </label>
+                  <Input placeholder="Enter your name" />
                 </div>
-                <div className="flex items-start space-x-2">
-                  <input type="checkbox" id="contact" className="mt-1" />
-                  <label
-                    htmlFor="contact"
-                    className="text-xs md:text-sm text-muted-foreground"
-                  >
-                    Please contact me by phone, email or SMS to assist with my
-                    enquiry
+                <div className="space-y-1 md:space-y-2">
+                  <label className="text-sm font-medium text-primary">
+                    Email*
                   </label>
+                  <Input placeholder="Enter your email" type="email" />
                 </div>
-                <div className="flex items-start space-x-2">
-                  <input type="checkbox" id="updates" className="mt-1" />
-                  <label
-                    htmlFor="updates"
-                    className="text-xs md:text-sm text-muted-foreground"
-                  >
-                    I would like to receive updates and offers from NextStep
-                    Abroad
+                <div className="space-y-1 md:space-y-2">
+                  <label className="text-sm font-medium text-primary">
+                    Phone*
                   </label>
+                  <Input placeholder="Enter your number" type="tel" />
                 </div>
-              </div>
-              <Link href="/contact">
-                <Button className="w-full bg-secondary hover:bg-secondary/90">
-                  Book Now!
-                </Button>
-              </Link>
-            </CardContent>
-          </Card>
+                <div className="space-y-1 md:space-y-2">
+                  <label className="text-sm font-medium text-primary">
+                    Country*
+                  </label>
+                  <Input placeholder="Enter your country" />
+                </div>
+                <div className="space-y-1 md:space-y-2">
+                  <label className="text-sm font-medium text-primary">
+                    Service Type*
+                  </label>
+                  <select className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50">
+                    <option>Select Service Type</option>
+                    <option>Career Mentoring</option>
+                    <option>SAT Certification</option>
+                    <option>Study Abroad</option>
+                    <option>Study in India</option>
+                  </select>
+                </div>
+                <div className="space-y-2 md:space-y-3">
+                  <div className="flex items-start space-x-2">
+                    <input type="checkbox" id="terms" className="mt-1" />
+                    <label
+                      htmlFor="terms"
+                      className="text-xs md:text-sm text-muted-foreground"
+                    >
+                      NextStep Abroad will not share your details with others
+                      without your permission: I agree to NextStep Abroad Terms
+                      and privacy policy
+                    </label>
+                  </div>
+                  <div className="flex items-start space-x-2">
+                    <input type="checkbox" id="contact" className="mt-1" />
+                    <label
+                      htmlFor="contact"
+                      className="text-xs md:text-sm text-muted-foreground"
+                    >
+                      Please contact me by phone, email or SMS to assist with my
+                      enquiry
+                    </label>
+                  </div>
+                  <div className="flex items-start space-x-2">
+                    <input type="checkbox" id="updates" className="mt-1" />
+                    <label
+                      htmlFor="updates"
+                      className="text-xs md:text-sm text-muted-foreground"
+                    >
+                      I would like to receive updates and offers from NextStep
+                      Abroad
+                    </label>
+                  </div>
+                </div>
+                <Link href="/contact">
+                  <Button className="w-full bg-secondary hover:bg-secondary/90">
+                    Book Now!
+                  </Button>
+                </Link>
+              </CardContent>
+            </Card>
+          </motion.div>
         </div>
       </section>
-
-      <section className="py-16">
+      <motion.section
+        className="py-16"
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, ease: "easeOut" }}
+        viewport={{ once: true }}
+      >
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-            <div>
+            <motion.div
+              initial={{ opacity: 0, scale: 0.8 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              viewport={{ once: true }}
+            >
               <div className="text-4xl font-bold text-primary mb-2">25+</div>
               <div className="text-muted-foreground">Years Experience</div>
-            </div>
-            <div>
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0, scale: 0.8 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              viewport={{ once: true }}
+            >
               <div className="text-4xl font-bold text-primary mb-2">5500+</div>
               <div className="text-muted-foreground">Students Placed</div>
-            </div>
-            <div>
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0, scale: 0.8 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+              viewport={{ once: true }}
+            >
               <div className="text-4xl font-bold text-primary mb-2">2500+</div>
               <div className="text-muted-foreground">Partner Universities</div>
-            </div>
-            <div>
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0, scale: 0.8 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+              viewport={{ once: true }}
+            >
               <div className="text-4xl font-bold text-primary mb-2">98%</div>
               <div className="text-muted-foreground">Success Rate</div>
-            </div>
+            </motion.div>
           </div>
         </div>
-      </section>
-
-      <section id="about" className="py-20">
+      </motion.section>
+      <motion.section
+        id="about"
+        className="py-20"
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, ease: "easeOut" }}
+        viewport={{ once: true }}
+      >
         <div className="container mx-auto px-4">
           <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div className="relative h-64 md:h-96 rounded-lg overflow-hidden bg-muted">
+            <motion.div
+              className="relative h-64 md:h-96 rounded-lg overflow-hidden bg-muted"
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              viewport={{ once: true }}
+            >
               <img
                 src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=600&h=400&fit=crop"
                 alt="Students studying together"
                 className="w-full h-full object-cover"
               />
-            </div>
-            <div className="space-y-6">
+            </motion.div>
+            <motion.div
+              className="space-y-6"
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, delay: 0.3 }}
+              viewport={{ once: true }}
+            >
               <h2 className="text-4xl font-bold text-primary">
                 Confused About the Right Career Path?
               </h2>
@@ -225,14 +281,26 @@ export default function Home() {
                   Learn More
                 </Button>
               </Link>
-            </div>
+            </motion.div>
           </div>
         </div>
-      </section>
-
-      <section id="services" className="py-20 bg-muted/80">
+      </motion.section>
+      <motion.section
+        id="services"
+        className="py-20 bg-muted/80"
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, ease: "easeOut" }}
+        viewport={{ once: true }}
+      >
         <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
+          <motion.div
+            className="text-center mb-12"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            viewport={{ once: true }}
+          >
             <h2 className="text-4xl font-bold text-primary mb-4">
               What We Offer
             </h2>
@@ -240,7 +308,7 @@ export default function Home() {
               Comprehensive services to support your international education
               journey
             </p>
-          </div>
+          </motion.div>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {contentData.services.map((service, i) => {
               const IconComponent =
@@ -252,9 +320,13 @@ export default function Home() {
                   ? Globe
                   : MapPin;
               return (
-                <div
+                <motion.div
                   key={i}
                   className="bg-white border border-gray-200 rounded-xl p-6 space-y-4 hover:shadow-xl hover:-translate-y-2 transition-all duration-300 group cursor-pointer"
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: i * 0.1 }}
+                  viewport={{ once: true }}
                 >
                   <div className="h-12 w-12 rounded-full bg-secondary/10 group-hover:bg-secondary/20 flex items-center justify-center transition-colors duration-300">
                     <IconComponent className="h-6 w-6 text-secondary" />
@@ -266,20 +338,25 @@ export default function Home() {
                     {service.description}
                   </p>
                   <div className="h-0.5 bg-linear-to-r from-transparent via-secondary/30 to-transparent group-hover:via-secondary transition-all duration-300"></div>
-                </div>
+                </motion.div>
               );
             })}
           </div>
-          <div className="text-center mt-12">
+          <motion.div
+            className="text-center mt-12"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.5 }}
+            viewport={{ once: true }}
+          >
             <Link href="/contact">
               <Button className="bg-primary hover:bg-primary/90">
                 Ready to start your journey?
               </Button>
             </Link>
-          </div>
+          </motion.div>
         </div>
-      </section>
-
+      </motion.section>
       <section className="py-20">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
@@ -291,23 +368,39 @@ export default function Home() {
           </div>
         </div>
       </section>
-
-      <section id="countries" className="py-20 bg-muted/80">
+      <motion.section
+        id="countries"
+        className="py-20 bg-muted/80"
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, ease: "easeOut" }}
+        viewport={{ once: true }}
+      >
         <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
+          <motion.div
+            className="text-center mb-12"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            viewport={{ once: true }}
+          >
             <h2 className="text-4xl font-bold text-primary mb-4">
               Pick a country you like the most
             </h2>
             <p className="text-muted-foreground">
               We have partnerships with universities across the globe
             </p>
-          </div>
+          </motion.div>
           <div className="relative overflow-hidden">
             <div className="flex animate-[marquee_40s_linear_infinite] md:animate-[marquee_20s_linear_infinite] space-x-4 md:space-x-6">
               {contentData.countries.slice(0, 6).map((country, i) => (
-                <div
+                <motion.div
                   key={i}
                   className="shrink-0 w-48 h-48 md:w-64 md:h-64 relative overflow-hidden group cursor-pointer rounded-lg shadow-lg hover:shadow-2xl transition-all duration-500"
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  transition={{ duration: 0.6, delay: i * 0.1 }}
+                  viewport={{ once: true }}
                 >
                   <img
                     src={country.image}
@@ -319,13 +412,17 @@ export default function Home() {
                       {country.name}
                     </h3>
                   </div>
-                </div>
+                </motion.div>
               ))}
               {/* Duplicate for seamless loop */}
               {contentData.countries.slice(0, 6).map((country, i) => (
-                <div
+                <motion.div
                   key={`duplicate-${i}`}
                   className="shrink-0 w-48 h-48 md:w-64 md:h-64 relative overflow-hidden group cursor-pointer rounded-lg shadow-lg hover:shadow-2xl transition-all duration-500"
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  transition={{ duration: 0.6, delay: i * 0.1 }}
+                  viewport={{ once: true }}
                 >
                   <img
                     src={country.image}
@@ -337,35 +434,57 @@ export default function Home() {
                       {country.name}
                     </h3>
                   </div>
-                </div>
+                </motion.div>
               ))}
             </div>
           </div>
-          <div className="text-center mt-8">
+          <motion.div
+            className="text-center mt-8"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.8 }}
+            viewport={{ once: true }}
+          >
             <Link href="/countries">
               <Button variant="outline">
                 Discover More <ChevronRight className="ml-2 h-4 w-4" />
               </Button>
             </Link>
-          </div>
+          </motion.div>
         </div>
-      </section>
-
-      <section id="courses" className="py-20">
+      </motion.section>
+      <motion.section
+        id="courses"
+        className="py-20"
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, ease: "easeOut" }}
+        viewport={{ once: true }}
+      >
         <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
+          <motion.div
+            className="text-center mb-12"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            viewport={{ once: true }}
+          >
             <h2 className="text-3xl md:text-4xl font-bold text-primary mb-4">
               Pick a course you like the most
             </h2>
             <p className="text-muted-foreground">
               Explore popular programs across various disciplines
             </p>
-          </div>
+          </motion.div>
           <div className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-6 mb-8">
             {contentData.courses.slice(0, 6).map((course, i) => (
-              <div
+              <motion.div
                 key={i}
                 className="bg-white border border-gray-200 rounded-lg overflow-hidden group cursor-pointer shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: i * 0.1 }}
+                viewport={{ once: true }}
               >
                 <div className="relative h-40 md:h-52 bg-linear-to-br from-gray-50 to-gray-100 flex items-center justify-center overflow-hidden">
                   <img
@@ -381,106 +500,165 @@ export default function Home() {
                   </h3>
                   <div className="mt-2 h-0.5 bg-linear-to-r from-transparent via-secondary/30 to-transparent group-hover:via-secondary transition-all duration-300"></div>
                 </div>
-              </div>
+              </motion.div>
             ))}
           </div>
-          <div className="text-center">
+          <motion.div
+            className="text-center"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.8 }}
+            viewport={{ once: true }}
+          >
             <Link href="/courses">
               <Button variant="outline">
                 View All Courses <ChevronRight className="ml-2 h-4 w-4" />
               </Button>
             </Link>
-          </div>
+          </motion.div>
         </div>
-      </section>
-
-      <section className="py-20 bg-muted/30">
+      </motion.section>
+      <motion.section
+        className="py-20 bg-muted/30"
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, ease: "easeOut" }}
+        viewport={{ once: true }}
+      >
         <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
+          <motion.div
+            className="text-center mb-12"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            viewport={{ once: true }}
+          >
             <h2 className="text-4xl font-bold text-primary mb-4">
               NextStep Abroad Success Stories
             </h2>
             <p className="text-muted-foreground">
               Hear from students who achieved their dreams with us
             </p>
-          </div>
+          </motion.div>
           <div className="grid md:grid-cols-3 gap-8">
             {contentData.testimonials.map((testimonial, i) => (
-              <Card key={i} className="hover:shadow-lg transition-shadow">
-                <CardContent className="p-6 space-y-4">
-                  <div className="flex items-center gap-4">
-                    <div className="h-12 w-12 rounded-full bg-muted flex items-center justify-center overflow-hidden">
-                      <img
-                        src={testimonial.image}
-                        alt={testimonial.name}
-                        className="w-full h-full object-cover"
-                      />
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: i * 0.2 }}
+                viewport={{ once: true }}
+              >
+                <Card className="hover:shadow-lg transition-shadow h-full">
+                  <CardContent className="p-6 space-y-4">
+                    <div className="flex items-center gap-4">
+                      <div className="h-12 w-12 rounded-full bg-muted flex items-center justify-center overflow-hidden">
+                        <img
+                          src={testimonial.image}
+                          alt={testimonial.name}
+                          className="w-full h-full object-cover"
+                        />
+                      </div>
+                      <div>
+                        <h4 className="font-semibold">{testimonial.name}</h4>
+                        <p className="text-sm text-muted-foreground">
+                          {testimonial.university}, {testimonial.country}
+                        </p>
+                      </div>
                     </div>
-                    <div>
-                      <h4 className="font-semibold">{testimonial.name}</h4>
-                      <p className="text-sm text-muted-foreground">
-                        {testimonial.university}, {testimonial.country}
-                      </p>
-                    </div>
-                  </div>
-                  <p className="text-muted-foreground italic">
-                    "{testimonial.testimonial}"
-                  </p>
-                </CardContent>
-              </Card>
+                    <p className="text-muted-foreground italic">
+                      "{testimonial.testimonial}"
+                    </p>
+                  </CardContent>
+                </Card>
+              </motion.div>
             ))}
           </div>
         </div>
-      </section>
-
-      <section className="py-20">
+      </motion.section>
+      <motion.section
+        className="py-20"
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, ease: "easeOut" }}
+        viewport={{ once: true }}
+      >
         <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
+          <motion.div
+            className="text-center mb-12"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            viewport={{ once: true }}
+          >
             <h2 className="text-4xl font-bold text-primary mb-4">
               Awards and Accolades
             </h2>
             <p className="text-muted-foreground">
               Recognized for excellence in international education consulting
             </p>
-          </div>
+          </motion.div>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             {awards.map((award, i) => (
-              <Card
+              <motion.div
                 key={i}
-                className="bg-white border-2 border-orange-500 rounded-xl shadow-md hover:shadow-xl transition-all duration-300"
+                initial={{ opacity: 0, scale: 0.8 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.6, delay: i * 0.1 }}
+                viewport={{ once: true }}
               >
-                <CardContent className="px-4 text-center space-y-3">
-                  <div className="h-24 w-24 mx-auto rounded-lg overflow-hidden">
-                    <img
-                      src={award.image}
-                      alt={award.title}
-                      className="w-full h-full object-cover"
-                    />
-                  </div>
-                  <h4 className="font-semibold text-sm">{award.title}</h4>
-                  <p className="text-xs text-muted-foreground">{award.year}</p>
-                </CardContent>
-              </Card>
+                <Card className="bg-white border-2 border-orange-500 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 h-full">
+                  <CardContent className="px-4 text-center space-y-3">
+                    <div className="h-24 w-24 mx-auto rounded-lg overflow-hidden">
+                      <img
+                        src={award.image}
+                        alt={award.title}
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
+                    <h4 className="font-semibold text-sm">{award.title}</h4>
+                    <p className="text-xs text-muted-foreground">
+                      {award.year}
+                    </p>
+                  </CardContent>
+                </Card>
+              </motion.div>
             ))}
           </div>
         </div>
-      </section>
-
-      <section id="contact" className="py-20 bg-muted/80">
+      </motion.section>{" "}
+      <motion.section
+        id="contact"
+        className="py-20 bg-muted/80"
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, ease: "easeOut" }}
+        viewport={{ once: true }}
+      >
         <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
+          <motion.div
+            className="text-center mb-12"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            viewport={{ once: true }}
+          >
             <h2 className="text-4xl font-bold text-primary mb-4">
               Get News With NextStep Abroad
             </h2>
             <p className="text-muted-foreground">
               Connect with us and stay updated on the latest opportunities
             </p>
-          </div>
+          </motion.div>
           <div className="grid md:grid-cols-3 gap-6">
             {contentData.news.map((item, i) => (
-              <div
+              <motion.div
                 key={i}
                 className="bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow overflow-hidden"
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: i * 0.2 }}
+                viewport={{ once: true }}
               >
                 <div className="relative h-48 overflow-hidden">
                   <img
@@ -502,12 +680,11 @@ export default function Home() {
                     </Button>
                   </Link>
                 </div>
-              </div>
+              </motion.div>
             ))}
           </div>
         </div>
-      </section>
-
+      </motion.section>
       <Footer />
     </main>
   );

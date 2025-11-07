@@ -18,6 +18,7 @@ import {
   ChevronDown,
 } from "lucide-react";
 import { useState } from "react";
+import { motion } from "framer-motion";
 
 export default function Contact() {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
@@ -26,9 +27,8 @@ export default function Contact() {
       type: "HQ",
       name: "NextStep Abroad Bengaluru (HQ)",
       city: "Bengaluru, Karnataka",
-      address:
-        "305, Tropical Terrace, Basavanagar, Doddanekkundi, Bangalore North, Bangalore - 560037, Karnataka",
-      phone: "+91 8961551100",
+      address: "Bengaluru, Karnataka - 560001",
+      phone: "+91 8971391091",
       email: "nextstepabroad53@gmail.com",
     },
     {
@@ -68,7 +68,12 @@ export default function Contact() {
       <Navbar />
 
       {/* Hero Section */}
-      <section className="relative h-[60vh] md:h-[70vh] flex items-center bg-linear-to-br from-primary to-primary/80 text-white">
+      <motion.section
+        className="relative h-[60vh] md:h-[70vh] flex items-center bg-linear-to-br from-primary to-primary/80 text-white"
+        initial={{ opacity: 0, y: 30 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+      >
         <div className="absolute inset-0 bg-black/20"></div>
         <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-4xl mx-auto text-center">
@@ -82,55 +87,88 @@ export default function Contact() {
             </h1>
           </div>
         </div>
-      </section>
+      </motion.section>
 
       {/* Contact Info Cards */}
-      <section className="py-12 md:py-16 bg-muted/30">
+      <motion.section
+        className="py-12 md:py-16 bg-muted/30"
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+        viewport={{ once: true }}
+      >
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 max-w-4xl mx-auto">
-            <Card className="text-center hover:shadow-lg transition-shadow">
-              <CardContent className="p-4 md:p-6">
-                <Phone className="h-10 w-10 md:h-12 md:w-12 text-secondary mx-auto mb-3 md:mb-4" />
-                <h3 className="font-semibold text-primary mb-2 text-sm md:text-base">
-                  Call Us
-                </h3>
-                <p className="text-muted-foreground text-sm md:text-base">
-                  +91 8961551100
-                </p>
-              </CardContent>
-            </Card>
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              viewport={{ once: true }}
+            >
+              <Card className="text-center hover:shadow-lg transition-shadow">
+                <CardContent className="p-4 md:p-6">
+                  <Phone className="h-10 w-10 md:h-12 md:w-12 text-secondary mx-auto mb-3 md:mb-4" />
+                  <h3 className="font-semibold text-primary mb-2 text-sm md:text-base">
+                    Call Us
+                  </h3>
+                  <p className="text-muted-foreground text-sm md:text-base">
+                    +91 8961551100
+                  </p>
+                </CardContent>
+              </Card>
+            </motion.div>
 
-            <Card className="text-center hover:shadow-lg transition-shadow">
-              <CardContent className="p-4 md:p-6">
-                <Mail className="h-10 w-10 md:h-12 md:w-12 text-secondary mx-auto mb-3 md:mb-4" />
-                <h3 className="font-semibold text-primary mb-2 text-sm md:text-base">
-                  Email
-                </h3>
-                <p className="text-muted-foreground text-sm md:text-base">
-                  nextstepabroad53@gmail.com
-                </p>
-              </CardContent>
-            </Card>
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              viewport={{ once: true }}
+            >
+              <Card className="text-center hover:shadow-lg transition-shadow">
+                <CardContent className="p-4 md:p-6">
+                  <Mail className="h-10 w-10 md:h-12 md:w-12 text-secondary mx-auto mb-3 md:mb-4" />
+                  <h3 className="font-semibold text-primary mb-2 text-sm md:text-base">
+                    Email
+                  </h3>
+                  <p className="text-muted-foreground text-sm md:text-base">
+                    nextstepabroad53@gmail.com
+                  </p>
+                </CardContent>
+              </Card>
+            </motion.div>
 
-            <Card className="text-center hover:shadow-lg transition-shadow sm:col-span-2 lg:col-span-1">
-              <CardContent className="p-4 md:p-6">
-                <MapPin className="h-10 w-10 md:h-12 md:w-12 text-secondary mx-auto mb-3 md:mb-4" />
-                <h3 className="font-semibold text-primary mb-2 text-sm md:text-base">
-                  Address (HQ)
-                </h3>
-                <p className="text-muted-foreground text-xs md:text-sm">
-                  13 Camac Street Ground floor
-                  <br />
-                  Kolkata - 700017
-                </p>
-              </CardContent>
-            </Card>
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+              viewport={{ once: true }}
+            >
+              <Card className="text-center hover:shadow-lg transition-shadow sm:col-span-2 lg:col-span-1">
+                <CardContent className="p-4 md:p-6">
+                  <MapPin className="h-10 w-10 md:h-12 md:w-12 text-secondary mx-auto mb-3 md:mb-4" />
+                  <h3 className="font-semibold text-primary mb-2 text-sm md:text-base">
+                    Address (HQ)
+                  </h3>
+                  <p className="text-muted-foreground text-xs md:text-sm">
+                    13 Camac Street Ground floor
+                    <br />
+                    Kolkata - 700017
+                  </p>
+                </CardContent>
+              </Card>
+            </motion.div>
           </div>
         </div>
-      </section>
+      </motion.section>
 
       {/* Contact Form */}
-      <section className="py-16 md:py-20">
+      <motion.section
+        className="py-16 md:py-20"
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+        viewport={{ once: true }}
+      >
         <div className="container mx-auto px-4">
           <div className="max-w-2xl mx-auto">
             <div className="text-center mb-8 md:mb-12">
@@ -232,10 +270,16 @@ export default function Contact() {
             </Card>
           </div>
         </div>
-      </section>
+      </motion.section>
 
       {/* SAS Partnership */}
-      <section className="py-12 md:py-16 bg-secondary text-white">
+      <motion.section
+        className="py-12 md:py-16 bg-secondary text-white"
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+        viewport={{ once: true }}
+      >
         <div className="container mx-auto px-4 text-center">
           <Award className="h-12 w-12 md:h-16 md:w-16 mx-auto mb-4 md:mb-6" />
           <h2 className="text-2xl md:text-3xl font-bold mb-3 md:mb-4">
@@ -246,10 +290,16 @@ export default function Contact() {
             use the form and select "SAS Training / Certification."
           </p>
         </div>
-      </section>
+      </motion.section>
 
       {/* Offices */}
-      <section className="py-16 md:py-20">
+      <motion.section
+        className="py-16 md:py-20"
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+        viewport={{ once: true }}
+      >
         <div className="container mx-auto px-4">
           <div className="text-center mb-8 md:mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-primary mb-3 md:mb-4">
@@ -263,48 +313,64 @@ export default function Contact() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-6 max-w-4xl mx-auto">
             {offices.map((office, i) => (
-              <Card key={i} className="hover:shadow-lg transition-shadow">
-                <CardContent className="p-4 md:p-6">
-                  <div className="flex items-center gap-2 mb-3">
-                    <Building className="h-4 w-4 md:h-5 md:w-5 text-secondary" />
-                    <span className="text-xs md:text-sm font-medium text-secondary bg-secondary/10 px-2 py-1 rounded">
-                      {office.type}
-                    </span>
-                  </div>
-                  <h3 className="font-semibold text-primary mb-2 text-base md:text-lg">
-                    {office.name}
-                  </h3>
-                  <p className="text-sm text-muted-foreground mb-2">
-                    {office.city}
-                  </p>
-                  <p className="text-xs md:text-sm text-muted-foreground mb-4">
-                    {office.address}
-                  </p>
-                  <div className="space-y-2">
-                    <p className="text-xs md:text-sm flex items-center gap-2">
-                      <Phone className="h-3 w-3 md:h-4 md:w-4 text-secondary" />
-                      {office.phone}
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: i * 0.1 }}
+                viewport={{ once: true }}
+              >
+                <Card className="hover:shadow-lg transition-shadow">
+                  <CardContent className="p-4 md:p-6">
+                    <div className="flex items-center gap-2 mb-3">
+                      <Building className="h-4 w-4 md:h-5 md:w-5 text-secondary" />
+                      <span className="text-xs md:text-sm font-medium text-secondary bg-secondary/10 px-2 py-1 rounded">
+                        {office.type}
+                      </span>
+                    </div>
+                    <h3 className="font-semibold text-primary mb-2 text-base md:text-lg">
+                      {office.name}
+                    </h3>
+                    <p className="text-sm text-muted-foreground mb-2">
+                      {office.city}
                     </p>
-                    <p className="text-xs md:text-sm flex items-center gap-2">
-                      <Mail className="h-3 w-3 md:h-4 md:w-4 text-secondary" />
-                      {office.email}
+                    <p className="text-xs md:text-sm text-muted-foreground mb-4">
+                      {office.address}
                     </p>
-                  </div>
-                  <Button
-                    className="w-full mt-4 bg-secondary hover:bg-secondary/90 text-sm md:text-base"
-                    onClick={() => window.open(`tel:${office.phone}`, "_self")}
-                  >
-                    Call
-                  </Button>
-                </CardContent>
-              </Card>
+                    <div className="space-y-2">
+                      <p className="text-xs md:text-sm flex items-center gap-2">
+                        <Phone className="h-3 w-3 md:h-4 md:w-4 text-secondary" />
+                        {office.phone}
+                      </p>
+                      <p className="text-xs md:text-sm flex items-center gap-2">
+                        <Mail className="h-3 w-3 md:h-4 md:w-4 text-secondary" />
+                        {office.email}
+                      </p>
+                    </div>
+                    <Button
+                      className="w-full mt-4 bg-secondary hover:bg-secondary/90 text-sm md:text-base"
+                      onClick={() =>
+                        window.open(`tel:${office.phone}`, "_self")
+                      }
+                    >
+                      Call
+                    </Button>
+                  </CardContent>
+                </Card>
+              </motion.div>
             ))}
           </div>
         </div>
-      </section>
+      </motion.section>
 
       {/* FAQ Section */}
-      <section className="py-12 md:py-16 bg-muted/30">
+      <motion.section
+        className="py-12 md:py-16 bg-muted/30"
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+        viewport={{ once: true }}
+      >
         <div className="container mx-auto px-4">
           <div className="max-w-5xl mx-auto">
             <h2 className="text-2xl md:text-3xl font-semibold text-primary text-center mb-4 md:mb-6">
@@ -312,45 +378,56 @@ export default function Contact() {
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4">
               {faqs.map((faq, i) => (
-                <Card
+                <motion.div
                   key={i}
-                  className="border border-gray-200 bg-white rounded-md shadow-sm hover:shadow-md transition-shadow"
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: i * 0.1 }}
+                  viewport={{ once: true }}
                 >
-                  <CardContent className="p-0">
-                    <button
-                      className="w-full p-3 md:p-4 text-left flex items-center justify-between hover:bg-muted/30 transition-colors rounded-md"
-                      onClick={() => setOpenFaq(openFaq === i ? null : i)}
-                      aria-expanded={openFaq === i}
-                      aria-controls={`faq-${i}`}
-                    >
-                      <h3 className="font-medium text-primary text-sm md:text-base pr-3">
-                        {faq.question}
-                      </h3>
-                      <ChevronDown
-                        className={`h-4 w-4 text-secondary transition-transform duration-200 shrink-0 ${
-                          openFaq === i ? "rotate-180" : ""
-                        }`}
-                      />
-                    </button>
-                    <div id={`faq-${i}`}>
-                      {openFaq === i && (
-                        <div className="px-3 md:px-4 pb-3">
-                          <p className="text-muted-foreground text-sm leading-relaxed">
-                            {faq.answer}
-                          </p>
-                        </div>
-                      )}
-                    </div>
-                  </CardContent>
-                </Card>
+                  <Card className="border border-gray-200 bg-white rounded-md shadow-sm hover:shadow-md transition-shadow">
+                    <CardContent className="p-0">
+                      <button
+                        className="w-full p-3 md:p-4 text-left flex items-center justify-between hover:bg-muted/30 transition-colors rounded-md"
+                        onClick={() => setOpenFaq(openFaq === i ? null : i)}
+                        aria-expanded={openFaq === i}
+                        aria-controls={`faq-${i}`}
+                      >
+                        <h3 className="font-medium text-primary text-sm md:text-base pr-3">
+                          {faq.question}
+                        </h3>
+                        <ChevronDown
+                          className={`h-4 w-4 text-secondary transition-transform duration-200 shrink-0 ${
+                            openFaq === i ? "rotate-180" : ""
+                          }`}
+                        />
+                      </button>
+                      <div id={`faq-${i}`}>
+                        {openFaq === i && (
+                          <div className="px-3 md:px-4 pb-3">
+                            <p className="text-muted-foreground text-sm leading-relaxed">
+                              {faq.answer}
+                            </p>
+                          </div>
+                        )}
+                      </div>
+                    </CardContent>
+                  </Card>
+                </motion.div>
               ))}
             </div>
           </div>
         </div>
-      </section>
+      </motion.section>
 
       {/* WhatsApp Section */}
-      <section className="py-12 md:py-16">
+      <motion.section
+        className="py-12 md:py-16"
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+        viewport={{ once: true }}
+      >
         <div className="container mx-auto px-4">
           <div className="flex flex-col md:flex-row items-center justify-between gap-4 md:gap-6">
             <div className="text-center md:text-left">
@@ -365,14 +442,16 @@ export default function Contact() {
               size="lg"
               variant="secondary"
               className="bg-secondary text-white hover:bg-secondary/90 font-semibold px-6 md:px-8 py-3 text-sm md:text-base"
-              onClick={() => window.open("https://wa.me/1234567890", "_blank")}
+              onClick={() =>
+                window.open("https://wa.me/918961551100", "_blank")
+              }
             >
               <MessageCircle className="mr-2 h-4 w-4 md:h-5 md:w-5" />
               Start Chat
             </Button>
           </div>
         </div>
-      </section>
+      </motion.section>
 
       {/* Back to Top */}
       <button

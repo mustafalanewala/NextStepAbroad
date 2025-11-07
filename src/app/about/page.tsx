@@ -23,6 +23,7 @@ import {
   ChevronRight,
 } from "lucide-react";
 import Link from "next/link";
+import { motion } from "framer-motion";
 
 export default function About() {
   const stats = [
@@ -145,7 +146,12 @@ export default function About() {
       <Navbar />
 
       {/* Hero Section */}
-      <section className="relative h-[70vh] flex items-center bg-linear-to-br from-primary to-primary/80 text-white">
+      <motion.section
+        className="relative h-[70vh] flex items-center bg-linear-to-br from-primary to-primary/80 text-white"
+        initial={{ opacity: 0, y: 30 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+      >
         <div className="absolute inset-0 bg-black/20"></div>
         <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-4xl mx-auto text-center">
@@ -178,38 +184,63 @@ export default function About() {
             </div>
           </div>
         </div>
-      </section>
+      </motion.section>
 
       {/* SAS Partner Badge */}
-      <section className="py-8 bg-secondary text-white">
+      <motion.section
+        className="py-8 bg-secondary text-white"
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+        viewport={{ once: true }}
+      >
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-2xl font-bold mb-2">SAS Authorized Partner</h2>
           <p className="text-secondary-foreground/90">
             Official training partner for SAS certification programs
           </p>
         </div>
-      </section>
+      </motion.section>
 
       {/* Stats Section */}
-      <section className="py-12 md:py-16">
+      <motion.section
+        className="py-12 md:py-16"
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+        viewport={{ once: true }}
+      >
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8 text-center">
             {stats.map((stat, i) => (
-              <div key={i} className="space-y-2 md:space-y-3">
+              <motion.div
+                key={i}
+                className="space-y-2 md:space-y-3"
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: i * 0.1 }}
+                viewport={{ once: true }}
+              >
                 <div className="text-3xl md:text-4xl font-bold text-primary">
                   {stat.number}
                 </div>
                 <div className="text-sm md:text-base text-muted-foreground">
                   {stat.label}
                 </div>
-              </div>
+              </motion.div>
             ))}
           </div>
         </div>
-      </section>
+      </motion.section>
 
       {/* Who We Are */}
-      <section className="py-16 md:py-20">
+      <motion.section
+        className="py-16 md:py-20"
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+        viewport={{ once: true }}
+      >
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
             <h2 className="text-3xl md:text-4xl font-bold text-primary mb-6 md:mb-8 text-center">
@@ -260,54 +291,81 @@ export default function About() {
             </div>
           </div>
         </div>
-      </section>
+      </motion.section>
 
       {/* Vision & Mission */}
-      <section className="py-16 md:py-20 bg-muted/30">
+      <motion.section
+        className="py-16 md:py-20 bg-muted/30"
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+        viewport={{ once: true }}
+      >
         <div className="container mx-auto px-4">
           <div className="grid md:grid-cols-2 gap-8 md:gap-12">
-            <Card className="hover:shadow-lg transition-shadow">
-              <CardContent className="p-6 md:p-8">
-                <div className="flex items-center gap-3 md:gap-4 mb-4 md:mb-6">
-                  <div className="h-10 w-10 md:h-12 md:w-12 rounded-full bg-secondary/10 flex items-center justify-center shrink-0">
-                    <Eye className="h-5 w-5 md:h-6 md:w-6 text-secondary" />
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              viewport={{ once: true }}
+            >
+              <Card className="hover:shadow-lg transition-shadow">
+                <CardContent className="p-6 md:p-8">
+                  <div className="flex items-center gap-3 md:gap-4 mb-4 md:mb-6">
+                    <div className="h-10 w-10 md:h-12 md:w-12 rounded-full bg-secondary/10 flex items-center justify-center shrink-0">
+                      <Eye className="h-5 w-5 md:h-6 md:w-6 text-secondary" />
+                    </div>
+                    <h3 className="text-xl md:text-2xl font-bold text-primary">
+                      Our Vision
+                    </h3>
                   </div>
-                  <h3 className="text-xl md:text-2xl font-bold text-primary">
-                    Our Vision
-                  </h3>
-                </div>
-                <p className="text-sm md:text-base text-muted-foreground leading-relaxed">
-                  To serve as a lifelong education and career mentor, empowering
-                  students to achieve global excellence and guiding them through
-                  every stage of their academic and professional journey.
-                </p>
-              </CardContent>
-            </Card>
+                  <p className="text-sm md:text-base text-muted-foreground leading-relaxed">
+                    To serve as a lifelong education and career mentor,
+                    empowering students to achieve global excellence and guiding
+                    them through every stage of their academic and professional
+                    journey.
+                  </p>
+                </CardContent>
+              </Card>
+            </motion.div>
 
-            <Card className="hover:shadow-lg transition-shadow">
-              <CardContent className="p-6 md:p-8">
-                <div className="flex items-center gap-3 md:gap-4 mb-4 md:mb-6">
-                  <div className="h-10 w-10 md:h-12 md:w-12 rounded-full bg-secondary/10 flex items-center justify-center shrink-0">
-                    <Target className="h-5 w-5 md:h-6 md:w-6 text-secondary" />
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              viewport={{ once: true }}
+            >
+              <Card className="hover:shadow-lg transition-shadow">
+                <CardContent className="p-6 md:p-8">
+                  <div className="flex items-center gap-3 md:gap-4 mb-4 md:mb-6">
+                    <div className="h-10 w-10 md:h-12 md:w-12 rounded-full bg-secondary/10 flex items-center justify-center shrink-0">
+                      <Target className="h-5 w-5 md:h-6 md:w-6 text-secondary" />
+                    </div>
+                    <h3 className="text-xl md:text-2xl font-bold text-primary">
+                      Our Mission
+                    </h3>
                   </div>
-                  <h3 className="text-xl md:text-2xl font-bold text-primary">
-                    Our Mission
-                  </h3>
-                </div>
-                <p className="text-sm md:text-base text-muted-foreground leading-relaxed">
-                  To empower students worldwide with the tools, resources, and
-                  guidance they need for admissions, scholarships, visa support,
-                  and career growth—helping them confidently navigate the
-                  complexities of the education landscape.
-                </p>
-              </CardContent>
-            </Card>
+                  <p className="text-sm md:text-base text-muted-foreground leading-relaxed">
+                    To empower students worldwide with the tools, resources, and
+                    guidance they need for admissions, scholarships, visa
+                    support, and career growth—helping them confidently navigate
+                    the complexities of the education landscape.
+                  </p>
+                </CardContent>
+              </Card>
+            </motion.div>
           </div>
         </div>
-      </section>
+      </motion.section>
 
       {/* Leadership Team */}
-      <section className="py-16 md:py-20">
+      <motion.section
+        className="py-16 md:py-20"
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+        viewport={{ once: true }}
+      >
         <div className="container mx-auto px-4">
           <div className="text-center mb-8 md:mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-primary mb-3 md:mb-4">
@@ -319,33 +377,45 @@ export default function About() {
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6 md:gap-8">
             {leadership.map((member, i) => (
-              <Card
+              <motion.div
                 key={i}
-                className="hover:shadow-lg transition-shadow text-center"
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: i * 0.1 }}
+                viewport={{ once: true }}
               >
-                <CardContent className="p-4 md:p-6">
-                  <div className="h-20 w-20 md:h-24 md:w-24 mx-auto rounded-full bg-muted flex items-center justify-center overflow-hidden mb-3 md:mb-4">
-                    <img
-                      src={member.image}
-                      alt={member.name}
-                      className="w-full h-full object-cover"
-                    />
-                  </div>
-                  <h4 className="font-semibold text-primary mb-1 text-sm md:text-base">
-                    {member.name}
-                  </h4>
-                  <p className="text-xs md:text-sm text-muted-foreground">
-                    {member.role}
-                  </p>
-                </CardContent>
-              </Card>
+                <Card className="hover:shadow-lg transition-shadow text-center">
+                  <CardContent className="p-4 md:p-6">
+                    <div className="h-20 w-20 md:h-24 md:w-24 mx-auto rounded-full bg-muted flex items-center justify-center overflow-hidden mb-3 md:mb-4">
+                      <img
+                        src={member.image}
+                        alt={member.name}
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
+                    <h4 className="font-semibold text-primary mb-1 text-sm md:text-base">
+                      {member.name}
+                    </h4>
+                    <p className="text-xs md:text-sm text-muted-foreground">
+                      {member.role}
+                    </p>
+                  </CardContent>
+                </Card>
+              </motion.div>
             ))}
           </div>
         </div>
-      </section>
+      </motion.section>
 
       {/* Services */}
-      <section id="services" className="py-16 md:py-20 bg-muted/30">
+      <motion.section
+        id="services"
+        className="py-16 md:py-20 bg-muted/30"
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+        viewport={{ once: true }}
+      >
         <div className="container mx-auto px-4">
           <div className="text-center mb-8 md:mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-primary mb-3 md:mb-4">
@@ -359,30 +429,41 @@ export default function About() {
             {services.map((service, i) => {
               const IconComponent = service.icon;
               return (
-                <Card
+                <motion.div
                   key={i}
-                  className="hover:shadow-lg hover:-translate-y-1 transition-all duration-300"
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: i * 0.1 }}
+                  viewport={{ once: true }}
                 >
-                  <CardContent className="p-4 md:p-6 space-y-3 md:space-y-4">
-                    <div className="h-10 w-10 md:h-12 md:w-12 rounded-full bg-secondary/10 flex items-center justify-center">
-                      <IconComponent className="h-5 w-5 md:h-6 md:w-6 text-secondary" />
-                    </div>
-                    <h3 className="text-lg md:text-xl font-semibold text-primary">
-                      {service.title}
-                    </h3>
-                    <p className="text-sm md:text-base text-muted-foreground">
-                      {service.description}
-                    </p>
-                  </CardContent>
-                </Card>
+                  <Card className="hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
+                    <CardContent className="p-4 md:p-6 space-y-3 md:space-y-4">
+                      <div className="h-10 w-10 md:h-12 md:w-12 rounded-full bg-secondary/10 flex items-center justify-center">
+                        <IconComponent className="h-5 w-5 md:h-6 md:w-6 text-secondary" />
+                      </div>
+                      <h3 className="text-lg md:text-xl font-semibold text-primary">
+                        {service.title}
+                      </h3>
+                      <p className="text-sm md:text-base text-muted-foreground">
+                        {service.description}
+                      </p>
+                    </CardContent>
+                  </Card>
+                </motion.div>
               );
             })}
           </div>
         </div>
-      </section>
+      </motion.section>
 
       {/* SAS Certification */}
-      <section className="py-16 md:py-20">
+      <motion.section
+        className="py-16 md:py-20"
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+        viewport={{ once: true }}
+      >
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-8 md:mb-12">
@@ -408,19 +489,27 @@ export default function About() {
               className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8"
             >
               {sasSteps.map((step, i) => (
-                <Card key={i} className="hover:shadow-lg transition-shadow">
-                  <CardContent className="p-4 md:p-6 text-center">
-                    <div className="text-3xl md:text-4xl font-bold text-secondary mb-3 md:mb-4">
-                      {step.step}
-                    </div>
-                    <h4 className="text-lg md:text-xl font-semibold text-primary mb-2">
-                      {step.title}
-                    </h4>
-                    <p className="text-sm md:text-base text-muted-foreground">
-                      {step.description}
-                    </p>
-                  </CardContent>
-                </Card>
+                <motion.div
+                  key={i}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: i * 0.1 }}
+                  viewport={{ once: true }}
+                >
+                  <Card className="hover:shadow-lg transition-shadow">
+                    <CardContent className="p-4 md:p-6 text-center">
+                      <div className="text-3xl md:text-4xl font-bold text-secondary mb-3 md:mb-4">
+                        {step.step}
+                      </div>
+                      <h4 className="text-lg md:text-xl font-semibold text-primary mb-2">
+                        {step.title}
+                      </h4>
+                      <p className="text-sm md:text-base text-muted-foreground">
+                        {step.description}
+                      </p>
+                    </CardContent>
+                  </Card>
+                </motion.div>
               ))}
             </div>
 
@@ -433,7 +522,7 @@ export default function About() {
             </div>
           </div>
         </div>
-      </section>
+      </motion.section>
 
       <Footer />
     </main>
