@@ -21,6 +21,9 @@ export default function Footer() {
             <p className="text-white/80 mb-4">
               Your trusted partner for global education and career success.
             </p>
+            <p className="text-white/80 mb-2 text-md font-semibold">
+              Follow us on
+            </p>
             <div className="flex gap-4">
               <a
                 href="https://wa.me/918961551100"
@@ -78,7 +81,11 @@ export default function Footer() {
             <ul className="space-y-3 text-white/80">
               <li className="flex items-start gap-2">
                 <Phone className="h-5 w-5 shrink-0 mt-0.5" />
-                <span>+91 8961551100</span>
+                <span>+91 8961551100 - Kolkata</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <Phone className="h-5 w-5 shrink-0 mt-0.5" />
+                <span>+91 8971391091 - Bangalore</span>
               </li>
               <li className="flex items-start gap-2">
                 <Mail className="h-5 w-5 shrink-0 mt-0.5" />
@@ -86,11 +93,7 @@ export default function Footer() {
               </li>
               <li className="flex items-start gap-2">
                 <MapPin className="h-5 w-5 shrink-0 mt-0.5" />
-                <span>
-                  13 Camac Street Ground floor
-                  <br />
-                  Kolkata - 700017
-                </span>
+                <span>13 Camac Street Ground floor, Kolkata - 700017</span>
               </li>
             </ul>
           </div>

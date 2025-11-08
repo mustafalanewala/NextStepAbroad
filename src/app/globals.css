@@ -123,10 +123,10 @@
 /* Marquee animation for country cards */
 @keyframes marquee {
   0% {
-    transform: translateX(0);
+    transform: translateX(0%);
   }
   100% {
-    transform: translateX(-50%);
+    transform: translateX(-100%);
   }
 }
 
@@ -174,7 +174,7 @@
 /* Marquee Animation for Partnership Ticker */
 @keyframes marquee {
   0% {
-    transform: translateX(100%);
+    transform: translateX(0%);
   }
   100% {
     transform: translateX(-100%);
@@ -182,5 +182,5 @@
 }
 
 .animate-marquee {
-  animation: marquee 35s linear infinite;
+  animation: marquee 25s linear infinite;
 }

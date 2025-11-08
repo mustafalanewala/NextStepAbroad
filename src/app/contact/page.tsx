@@ -111,9 +111,10 @@ export default function Contact() {
                   <h3 className="font-semibold text-primary mb-2 text-sm md:text-base">
                     Call Us
                   </h3>
-                  <p className="text-muted-foreground text-sm md:text-base">
-                    +91 8961551100
-                  </p>
+                  <div className="text-muted-foreground text-sm md:text-base space-y-1">
+                    <p>+91 8961551100 - Kolkata</p>
+                    <p>+91 8971391091 - Bangalore</p>
+                  </div>
                 </CardContent>
               </Card>
             </motion.div>
@@ -124,7 +125,7 @@ export default function Contact() {
               transition={{ duration: 0.6, delay: 0.2 }}
               viewport={{ once: true }}
             >
-              <Card className="text-center hover:shadow-lg transition-shadow">
+              <Card className="text-center hover:shadow-lg transition-shadow h-full">
                 <CardContent className="p-4 md:p-6">
                   <Mail className="h-10 w-10 md:h-12 md:w-12 text-secondary mx-auto mb-3 md:mb-4" />
                   <h3 className="font-semibold text-primary mb-2 text-sm md:text-base">
@@ -143,7 +144,7 @@ export default function Contact() {
               transition={{ duration: 0.6, delay: 0.3 }}
               viewport={{ once: true }}
             >
-              <Card className="text-center hover:shadow-lg transition-shadow sm:col-span-2 lg:col-span-1">
+              <Card className="text-center hover:shadow-lg h-full transition-shadow sm:col-span-2 lg:col-span-1">
                 <CardContent className="p-4 md:p-6">
                   <MapPin className="h-10 w-10 md:h-12 md:w-12 text-secondary mx-auto mb-3 md:mb-4" />
                   <h3 className="font-semibold text-primary mb-2 text-sm md:text-base">
@@ -452,14 +453,6 @@ export default function Contact() {
           </div>
         </div>
       </motion.section>
-
-      {/* Back to Top */}
-      <button
-        className="fixed bottom-4 right-4 md:bottom-8 md:right-8 bg-secondary hover:bg-secondary/90 text-white p-2 md:p-3 rounded-full shadow-lg transition-all duration-300 z-50"
-        onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-      >
-        <ChevronUp className="h-5 w-5 md:h-6 md:w-6" />
-      </button>
 
       <Footer />
     </main>

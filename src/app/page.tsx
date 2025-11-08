@@ -49,25 +49,46 @@ export default function Home() {
       {/* Partnership Ticker */}
       <div className="bg-secondary text-white py-2 overflow-hidden">
         <div className="animate-marquee whitespace-nowrap">
-          <span className="inline-block px-4">
+          <span className="inline-block px-2 md:px-4 text-xs md:text-base">
             OFFICIAL CHANNEL PARTNER WITH{" "}
             <strong>
-              UNILINK EDUCATION INTERNATIONAL PRIVATE LIMITED BANGALORE AND
-              MEDICOHUT
+              MEDICOHUT AND UNILINK EDUCATION INTERNATIONAL PRIVATE LIMITED
+              BANGALORE
             </strong>
           </span>
-          <span className="inline-block px-4">
+          <span className="inline-block px-2 md:px-4 text-xs md:text-base">
             OFFICIAL CHANNEL PARTNER WITH{" "}
             <strong>
-              UNILINK EDUCATION INTERNATIONAL PRIVATE LIMITED BANGALORE AND
-              MEDICOHUT
+              MEDICOHUT AND UNILINK EDUCATION INTERNATIONAL PRIVATE LIMITED
+              BANGALORE
             </strong>
           </span>
-          <span className="inline-block px-4">
+          <span className="inline-block px-2 md:px-4 text-xs md:text-base">
             OFFICIAL CHANNEL PARTNER WITH{" "}
             <strong>
-              UNILINK EDUCATION INTERNATIONAL PRIVATE LIMITED BANGALORE AND
-              MEDICOHUT
+              MEDICOHUT AND UNILINK EDUCATION INTERNATIONAL PRIVATE LIMITED
+              BANGALORE
+            </strong>
+          </span>
+          <span className="inline-block px-2 md:px-4 text-xs md:text-base">
+            OFFICIAL CHANNEL PARTNER WITH{" "}
+            <strong>
+              MEDICOHUT AND UNILINK EDUCATION INTERNATIONAL PRIVATE LIMITED
+              BANGALORE
+            </strong>
+          </span>
+          <span className="inline-block px-2 md:px-4 text-xs md:text-base">
+            OFFICIAL CHANNEL PARTNER WITH{" "}
+            <strong>
+              MEDICOHUT AND UNILINK EDUCATION INTERNATIONAL PRIVATE LIMITED
+              BANGALORE
+            </strong>
+          </span>
+          <span className="inline-block px-2 md:px-4 text-xs md:text-base">
+            OFFICIAL CHANNEL PARTNER WITH{" "}
+            <strong>
+              MEDICOHUT AND UNILINK EDUCATION INTERNATIONAL PRIVATE LIMITED
+              BANGALORE
             </strong>
           </span>
         </div>

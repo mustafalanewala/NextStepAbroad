@@ -261,8 +261,8 @@ export default function About() {
                   <p className="text-sm md:text-base text-primary font-semibold">
                     Official Channel Partner with{" "}
                     <strong>
-                      UNILINK EDUCATION INTERNATIONAL PRIVATE LIMITED BANGALORE
-                      AND MEDICOHUT
+                      MEDICOHUT AND UNILINK EDUCATION INTERNATIONAL PRIVATE
+                      LIMITED BANGALORE
                     </strong>
                   </p>
                 </div>
