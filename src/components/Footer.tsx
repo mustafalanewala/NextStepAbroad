@@ -26,7 +26,7 @@ export default function Footer() {
             </p>
             <div className="flex gap-4">
               <a
-                href="https://wa.me/918961551100"
+                href="https://wa.me/917003824652"
                 className="h-10 w-10 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center transition-colors"
               >
                 <MessageCircle className="h-5 w-5" />
@@ -72,6 +72,22 @@ export default function Footer() {
                   className="hover:text-secondary transition-colors"
                 >
                   Courses
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/terms-conditions"
+                  className="hover:text-secondary transition-colors"
+                >
+                  Terms & Conditions
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/privacy-policy"
+                  className="hover:text-secondary transition-colors"
+                >
+                  Privacy Policy
                 </Link>
               </li>
             </ul>

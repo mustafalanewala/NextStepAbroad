@@ -259,11 +259,8 @@ export default function About() {
                 </p>
                 <div className="bg-secondary/10 border-l-4 border-secondary p-4 rounded-r-lg">
                   <p className="text-sm md:text-base text-primary font-semibold">
-                    Official Channel Partner with{" "}
-                    <strong>
-                      MEDICOHUT AND UNILINK EDUCATION INTERNATIONAL PRIVATE
-                      LIMITED BANGALORE
-                    </strong>
+                    Official Channel Partner of MedicoHut & UniThink Education
+                    International Pvt. Ltd.{" "}
                   </p>
                 </div>
                 <div className="space-y-2 md:space-y-3">

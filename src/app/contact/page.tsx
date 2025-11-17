@@ -22,6 +22,18 @@ import { motion } from "framer-motion";
 
 export default function Contact() {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    country: "",
+    serviceType: "",
+    terms: false,
+    contact: false,
+    updates: false,
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitMessage, setSubmitMessage] = useState("");
   const offices = [
     {
       type: "HQ",
@@ -62,6 +74,58 @@ export default function Contact() {
         "Visit our services page or contact us for a detailed consultation.",
     },
   ];
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    setSubmitMessage("");
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (response.ok) {
+        setSubmitMessage("Thank you! Your message has been sent successfully.");
+        setFormData({
+          name: "",
+          email: "",
+          phone: "",
+          country: "",
+          serviceType: "",
+          terms: false,
+          contact: false,
+          updates: false,
+        });
+      } else {
+        setSubmitMessage(
+          "Sorry, there was an error sending your message. Please try again."
+        );
+      }
+    } catch (error) {
+      setSubmitMessage(
+        "Sorry, there was an error sending your message. Please try again."
+      );
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
+  const handleInputChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
+  ) => {
+    const { name, value, type } = e.target;
+    const checked = (e.target as HTMLInputElement).checked;
+
+    setFormData((prev) => ({
+      ...prev,
+      [name]: type === "checkbox" ? checked : value,
+    }));
+  };
 
   return (
     <main className="min-h-screen">
@@ -184,19 +248,35 @@ export default function Contact() {
 
             <Card className="shadow-lg">
               <CardContent className="p-4 md:p-8">
-                <form className="space-y-4 md:space-y-6">
+                <form
+                  onSubmit={handleSubmit}
+                  className="space-y-4 md:space-y-6"
+                >
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
                     <div className="space-y-2">
                       <label className="text-sm font-medium text-primary">
                         Name*
                       </label>
-                      <Input placeholder="Enter your name" />
+                      <Input
+                        name="name"
+                        value={formData.name}
+                        onChange={handleInputChange}
+                        placeholder="Enter your name"
+                        required
+                      />
                     </div>
                     <div className="space-y-2">
                       <label className="text-sm font-medium text-primary">
                         Email*
                       </label>
-                      <Input placeholder="Enter your email" type="email" />
+                      <Input
+                        name="email"
+                        type="email"
+                        value={formData.email}
+                        onChange={handleInputChange}
+                        placeholder="Enter your email"
+                        required
+                      />
                     </div>
                   </div>
 
@@ -205,13 +285,26 @@ export default function Contact() {
                       <label className="text-sm font-medium text-primary">
                         Phone*
                       </label>
-                      <Input placeholder="Enter your number" type="tel" />
+                      <Input
+                        name="phone"
+                        type="tel"
+                        value={formData.phone}
+                        onChange={handleInputChange}
+                        placeholder="Enter your number"
+                        required
+                      />
                     </div>
                     <div className="space-y-2">
                       <label className="text-sm font-medium text-primary">
                         Country*
                       </label>
-                      <Input placeholder="Enter your country" />
+                      <Input
+                        name="country"
+                        value={formData.country}
+                        onChange={handleInputChange}
+                        placeholder="Enter your country"
+                        required
+                      />
                     </div>
                   </div>
 
@@ -219,10 +312,16 @@ export default function Contact() {
                     <label className="text-sm font-medium text-primary">
                       Service Type*
                     </label>
-                    <select className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50">
-                      <option>Select Service Type</option>
+                    <select
+                      name="serviceType"
+                      value={formData.serviceType}
+                      onChange={handleInputChange}
+                      className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+                      required
+                    >
+                      <option value="">Select Service Type</option>
                       <option>Career Mentoring</option>
-                      <option>SAT Certification</option>
+                      <option>SAS Certification / SAS Programs</option>
                       <option>Study Abroad</option>
                       <option>Study in India</option>
                       <option>SAS Training / Certification</option>
@@ -231,7 +330,15 @@ export default function Contact() {
 
                   <div className="space-y-3">
                     <div className="flex items-start space-x-2">
-                      <input type="checkbox" id="terms" className="mt-1" />
+                      <input
+                        type="checkbox"
+                        id="terms"
+                        name="terms"
+                        checked={formData.terms}
+                        onChange={handleInputChange}
+                        className="mt-1"
+                        required
+                      />
                       <label
                         htmlFor="terms"
                         className="text-xs md:text-sm text-muted-foreground"
@@ -242,7 +349,14 @@ export default function Contact() {
                       </label>
                     </div>
                     <div className="flex items-start space-x-2">
-                      <input type="checkbox" id="contact" className="mt-1" />
+                      <input
+                        type="checkbox"
+                        id="contact"
+                        name="contact"
+                        checked={formData.contact}
+                        onChange={handleInputChange}
+                        className="mt-1"
+                      />
                       <label
                         htmlFor="contact"
                         className="text-xs md:text-sm text-muted-foreground"
@@ -252,7 +366,14 @@ export default function Contact() {
                       </label>
                     </div>
                     <div className="flex items-start space-x-2">
-                      <input type="checkbox" id="updates" className="mt-1" />
+                      <input
+                        type="checkbox"
+                        id="updates"
+                        name="updates"
+                        checked={formData.updates}
+                        onChange={handleInputChange}
+                        className="mt-1"
+                      />
                       <label
                         htmlFor="updates"
                         className="text-xs md:text-sm text-muted-foreground"
@@ -263,9 +384,25 @@ export default function Contact() {
                     </div>
                   </div>
 
-                  <Button className="w-full bg-secondary hover:bg-secondary/90 text-base md:text-lg py-3">
-                    Book Now!
+                  <Button
+                    type="submit"
+                    disabled={isSubmitting}
+                    className="w-full bg-secondary hover:bg-secondary/90 text-base md:text-lg py-3"
+                  >
+                    {isSubmitting ? "Sending..." : "Book Now!"}
                   </Button>
+
+                  {submitMessage && (
+                    <p
+                      className={`text-center text-sm mt-4 ${
+                        submitMessage.includes("error")
+                          ? "text-red-600"
+                          : "text-green-600"
+                      }`}
+                    >
+                      {submitMessage}
+                    </p>
+                  )}
                 </form>
               </CardContent>
             </Card>
@@ -444,7 +581,7 @@ export default function Contact() {
               variant="secondary"
               className="bg-secondary text-white hover:bg-secondary/90 font-semibold px-6 md:px-8 py-3 text-sm md:text-base"
               onClick={() =>
-                window.open("https://wa.me/918961551100", "_blank")
+                window.open("https://wa.me/917003824652", "_blank")
               }
             >
               <MessageCircle className="mr-2 h-4 w-4 md:h-5 md:w-5" />

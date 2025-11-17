@@ -7,7 +7,7 @@
     },
     {
       "icon": "Award",
-      "title": "SAT Certification",
+      "title": "SAS Certification / SAS Programs",
       "description": "Comprehensive preparation and training for SAT examinations"
     },
     {
@@ -156,48 +156,7 @@
     "https://images.unsplash.com/photo-1513475382585-d06e58bcb0e0?w=1200&h=500&fit=crop",
     "https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=1200&h=500&fit=crop"
   ],
-  "awards": [
-    {
-      "title": "Global Women in Business & Leadership Awards",
-      "year": "2023",
-      "image": "https://firebasestorage.googleapis.com/v0/b/unithink-89630.appspot.com/o/awards%20icons%2Fgcpit.png?alt=media&token=4599b54d-024b-47a2-9d1f-59070e93f2ff"
-    },
-    {
-      "title": "Outstanding Management and Entrepreneurship Education Institute",
-      "year": "2022",
-      "image": "https://firebasestorage.googleapis.com/v0/b/unithink-89630.appspot.com/o/awards%20icons%2Fcisme.png?alt=media&token=9e9432a1-fd74-4092-a91d-896c510bcaab"
-    },
-    {
-      "title": "Eminent Academician Award",
-      "year": "2022",
-      "image": "https://firebasestorage.googleapis.com/v0/b/unithink-89630.appspot.com/o/awards%20icons%2FMSRF%20logo.png?alt=media&token=f487a8c4-7845-435c-950e-f1e3fede137a"
-    },
-    {
-      "title": "Best Academician Award",
-      "year": "2022",
-      "image": "https://firebasestorage.googleapis.com/v0/b/unithink-89630.appspot.com/o/awards%20icons%2Fstmothertheresauniversity_logo.jpeg?alt=media&token=4d92c352-790a-4fcf-a6b3-e398feead283"
-    },
-    {
-      "title": "Certificate of Appreciation for OMC-Google Challenge",
-      "year": "2021",
-      "image": "https://firebasestorage.googleapis.com/v0/b/unithink-89630.appspot.com/o/awards%20icons%2Fgoogle%20omc.png?alt=media&token=849443c5-b8df-4ad6-8aea-b31024acafdb"
-    },
-    {
-      "title": "Outstanding Management Teacher Award",
-      "year": "2018",
-      "image": "https://firebasestorage.googleapis.com/v0/b/unithink-89630.appspot.com/o/awards%20icons%2FMTC%20Global%20awards.jpg?alt=media&token=ef822ed7-9df1-46e5-8e81-8aa68c8e8fd7"
-    },
-    {
-      "title": "AIMA-Accredited Management Teacher",
-      "year": "2011",
-      "image": "https://firebasestorage.googleapis.com/v0/b/unithink-89630.appspot.com/o/awards%20icons%2Faima.png?alt=media&token=eee1eef8-d7d4-4710-b37a-e7c398bad310"
-    },
-    {
-      "title": "Research Excellence Award NHCE",
-      "year": "2023",
-      "image": "https://firebasestorage.googleapis.com/v0/b/unithink-89630.appspot.com/o/awards%20icons%2FNHCE%20logo.png?alt=media&token=129cb6f9-9a52-4887-a6c7-490b43b43159"
-    }
-  ],
+  "awards": [],
   "news": [
     {
       "title": "How can you select the best courses to align with your future career goals?",

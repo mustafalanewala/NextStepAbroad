@@ -19,6 +19,18 @@ import { motion } from "framer-motion";
 
 export default function Home() {
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [heroFormData, setHeroFormData] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    country: "",
+    serviceType: "",
+    terms: false,
+    contact: false,
+    updates: false,
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitMessage, setSubmitMessage] = useState("");
 
   useEffect(() => {
     const container = document.getElementById("carousel-container");
@@ -42,7 +54,57 @@ export default function Home() {
     return () => clearInterval(interval);
   }, []);
 
-  const awards = contentData.awards;
+  const handleHeroSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    setSubmitMessage("");
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(heroFormData),
+      });
+
+      if (response.ok) {
+        setSubmitMessage("Thank you! Your message has been sent successfully.");
+        setHeroFormData({
+          name: "",
+          email: "",
+          phone: "",
+          country: "",
+          serviceType: "",
+          terms: false,
+          contact: false,
+          updates: false,
+        });
+      } else {
+        setSubmitMessage(
+          "Sorry, there was an error sending your message. Please try again."
+        );
+      }
+    } catch (error) {
+      setSubmitMessage(
+        "Sorry, there was an error sending your message. Please try again."
+      );
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
+  const handleHeroInputChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
+  ) => {
+    const { name, value, type } = e.target;
+    const checked = (e.target as HTMLInputElement).checked;
+
+    setHeroFormData((prev) => ({
+      ...prev,
+      [name]: type === "checkbox" ? checked : value,
+    }));
+  };
 
   return (
     <main className="min-h-screen">
@@ -50,45 +112,39 @@ export default function Home() {
       <div className="bg-secondary text-white py-2 overflow-hidden">
         <div className="animate-marquee whitespace-nowrap">
           <span className="inline-block px-2 md:px-4 text-xs md:text-base">
-            OFFICIAL CHANNEL PARTNER WITH{" "}
+            OFFICIAL CHANNEL PARTNER OF{" "}
             <strong>
-              MEDICOHUT AND UNILINK EDUCATION INTERNATIONAL PRIVATE LIMITED
-              BANGALORE
+              MEDICOHUT & UNITHINK EDUCATION INTERNATIONAL PVT. LTD.
             </strong>
           </span>
           <span className="inline-block px-2 md:px-4 text-xs md:text-base">
-            OFFICIAL CHANNEL PARTNER WITH{" "}
+            OFFICIAL CHANNEL PARTNER OF{" "}
             <strong>
-              MEDICOHUT AND UNILINK EDUCATION INTERNATIONAL PRIVATE LIMITED
-              BANGALORE
+              MEDICOHUT & UNITHINK EDUCATION INTERNATIONAL PVT. LTD.
             </strong>
           </span>
           <span className="inline-block px-2 md:px-4 text-xs md:text-base">
-            OFFICIAL CHANNEL PARTNER WITH{" "}
+            OFFICIAL CHANNEL PARTNER OF{" "}
             <strong>
-              MEDICOHUT AND UNILINK EDUCATION INTERNATIONAL PRIVATE LIMITED
-              BANGALORE
+              MEDICOHUT & UNITHINK EDUCATION INTERNATIONAL PVT. LTD.
             </strong>
           </span>
           <span className="inline-block px-2 md:px-4 text-xs md:text-base">
-            OFFICIAL CHANNEL PARTNER WITH{" "}
+            OFFICIAL CHANNEL PARTNER OF{" "}
             <strong>
-              MEDICOHUT AND UNILINK EDUCATION INTERNATIONAL PRIVATE LIMITED
-              BANGALORE
+              MEDICOHUT & UNITHINK EDUCATION INTERNATIONAL PVT. LTD.
             </strong>
           </span>
           <span className="inline-block px-2 md:px-4 text-xs md:text-base">
-            OFFICIAL CHANNEL PARTNER WITH{" "}
+            OFFICIAL CHANNEL PARTNER OF{" "}
             <strong>
-              MEDICOHUT AND UNILINK EDUCATION INTERNATIONAL PRIVATE LIMITED
-              BANGALORE
+              MEDICOHUT & UNITHINK EDUCATION INTERNATIONAL PVT. LTD.
             </strong>
           </span>
           <span className="inline-block px-2 md:px-4 text-xs md:text-base">
-            OFFICIAL CHANNEL PARTNER WITH{" "}
+            OFFICIAL CHANNEL PARTNER OF{" "}
             <strong>
-              MEDICOHUT AND UNILINK EDUCATION INTERNATIONAL PRIVATE LIMITED
-              BANGALORE
+              MEDICOHUT & UNITHINK EDUCATION INTERNATIONAL PVT. LTD.
             </strong>
           </span>
         </div>
@@ -143,80 +199,153 @@ export default function Home() {
                 <h3 className="text-lg md:text-xl font-semibold text-primary">
                   Book Free Counselling & Guidance
                 </h3>
-                <div className="space-y-1 md:space-y-2">
-                  <label className="text-sm font-medium text-primary">
-                    Name*
-                  </label>
-                  <Input placeholder="Enter your name" />
-                </div>
-                <div className="space-y-1 md:space-y-2">
-                  <label className="text-sm font-medium text-primary">
-                    Email*
-                  </label>
-                  <Input placeholder="Enter your email" type="email" />
-                </div>
-                <div className="space-y-1 md:space-y-2">
-                  <label className="text-sm font-medium text-primary">
-                    Phone*
-                  </label>
-                  <Input placeholder="Enter your number" type="tel" />
-                </div>
-                <div className="space-y-1 md:space-y-2">
-                  <label className="text-sm font-medium text-primary">
-                    Country*
-                  </label>
-                  <Input placeholder="Enter your country" />
-                </div>
-                <div className="space-y-1 md:space-y-2">
-                  <label className="text-sm font-medium text-primary">
-                    Service Type*
-                  </label>
-                  <select className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50">
-                    <option>Select Service Type</option>
-                    <option>Career Mentoring</option>
-                    <option>SAT Certification</option>
-                    <option>Study Abroad</option>
-                    <option>Study in India</option>
-                  </select>
-                </div>
-                <div className="space-y-2 md:space-y-3">
-                  <div className="flex items-start space-x-2">
-                    <input type="checkbox" id="terms" className="mt-1" />
-                    <label
-                      htmlFor="terms"
-                      className="text-xs md:text-sm text-muted-foreground"
-                    >
-                      NextStep Abroad will not share your details with others
-                      without your permission: I agree to NextStep Abroad Terms
-                      and privacy policy
+                <form
+                  onSubmit={handleHeroSubmit}
+                  className="space-y-2 md:space-y-3"
+                >
+                  <div className="space-y-1 md:space-y-2">
+                    <label className="text-sm font-medium text-primary">
+                      Name*
                     </label>
+                    <Input
+                      name="name"
+                      value={heroFormData.name}
+                      onChange={handleHeroInputChange}
+                      placeholder="Enter your name"
+                      required
+                    />
                   </div>
-                  <div className="flex items-start space-x-2">
-                    <input type="checkbox" id="contact" className="mt-1" />
-                    <label
-                      htmlFor="contact"
-                      className="text-xs md:text-sm text-muted-foreground"
-                    >
-                      Please contact me by phone, email or SMS to assist with my
-                      enquiry
+                  <div className="space-y-1 md:space-y-2">
+                    <label className="text-sm font-medium text-primary">
+                      Email*
                     </label>
+                    <Input
+                      name="email"
+                      type="email"
+                      value={heroFormData.email}
+                      onChange={handleHeroInputChange}
+                      placeholder="Enter your email"
+                      required
+                    />
                   </div>
-                  <div className="flex items-start space-x-2">
-                    <input type="checkbox" id="updates" className="mt-1" />
-                    <label
-                      htmlFor="updates"
-                      className="text-xs md:text-sm text-muted-foreground"
-                    >
-                      I would like to receive updates and offers from NextStep
-                      Abroad
+                  <div className="space-y-1 md:space-y-2">
+                    <label className="text-sm font-medium text-primary">
+                      Phone*
                     </label>
+                    <Input
+                      name="phone"
+                      type="tel"
+                      value={heroFormData.phone}
+                      onChange={handleHeroInputChange}
+                      placeholder="Enter your number"
+                      required
+                    />
                   </div>
-                </div>
-                <Link href="/contact">
-                  <Button className="w-full bg-secondary hover:bg-secondary/90">
-                    Book Now!
+                  <div className="space-y-1 md:space-y-2">
+                    <label className="text-sm font-medium text-primary">
+                      Country*
+                    </label>
+                    <Input
+                      name="country"
+                      value={heroFormData.country}
+                      onChange={handleHeroInputChange}
+                      placeholder="Enter your country"
+                      required
+                    />
+                  </div>
+                  <div className="space-y-1 md:space-y-2">
+                    <label className="text-sm font-medium text-primary">
+                      Service Type*
+                    </label>
+                    <select
+                      name="serviceType"
+                      value={heroFormData.serviceType}
+                      onChange={handleHeroInputChange}
+                      className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+                      required
+                    >
+                      <option value="">Select Service Type</option>
+                      <option>Career Mentoring</option>
+                      <option>SAS Certification / SAS Programs</option>
+                      <option>Study Abroad</option>
+                      <option>Study in India</option>
+                    </select>
+                  </div>
+                  <div className="space-y-2 md:space-y-3">
+                    <div className="flex items-start space-x-2">
+                      <input
+                        type="checkbox"
+                        id="hero-terms"
+                        name="terms"
+                        checked={heroFormData.terms}
+                        onChange={handleHeroInputChange}
+                        className="mt-1"
+                        required
+                      />
+                      <label
+                        htmlFor="hero-terms"
+                        className="text-xs md:text-sm text-muted-foreground"
+                      >
+                        NextStep Abroad will not share your details with others
+                        without your permission: I agree to NextStep Abroad
+                        Terms and privacy policy
+                      </label>
+                    </div>
+                    <div className="flex items-start space-x-2">
+                      <input
+                        type="checkbox"
+                        id="hero-contact"
+                        name="contact"
+                        checked={heroFormData.contact}
+                        onChange={handleHeroInputChange}
+                        className="mt-1"
+                      />
+                      <label
+                        htmlFor="hero-contact"
+                        className="text-xs md:text-sm text-muted-foreground"
+                      >
+                        Please contact me by phone, email or SMS to assist with
+                        my enquiry
+                      </label>
+                    </div>
+                    <div className="flex items-start space-x-2">
+                      <input
+                        type="checkbox"
+                        id="hero-updates"
+                        name="updates"
+                        checked={heroFormData.updates}
+                        onChange={handleHeroInputChange}
+                        className="mt-1"
+                      />
+                      <label
+                        htmlFor="hero-updates"
+                        className="text-xs md:text-sm text-muted-foreground"
+                      >
+                        I would like to receive updates and offers from NextStep
+                        Abroad
+                      </label>
+                    </div>
+                  </div>
+                  <Button
+                    type="submit"
+                    disabled={isSubmitting}
+                    className="w-full bg-secondary hover:bg-secondary/90"
+                  >
+                    {isSubmitting ? "Sending..." : "Book Now!"}
                   </Button>
-                </Link>
+
+                  {submitMessage && (
+                    <p
+                      className={`text-center text-sm mt-4 ${
+                        submitMessage.includes("error")
+                          ? "text-red-600"
+                          : "text-green-600"
+                      }`}
+                    >
+                      {submitMessage}
+                    </p>
+                  )}
+                </form>
               </CardContent>
             </Card>
           </motion.div>
@@ -623,57 +752,6 @@ export default function Home() {
           </div>
         </div>
       </motion.section>
-      <motion.section
-        className="py-20"
-        initial={{ opacity: 0, y: 30 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, ease: "easeOut" }}
-        viewport={{ once: true }}
-      >
-        <div className="container mx-auto px-4">
-          <motion.div
-            className="text-center mb-12"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            viewport={{ once: true }}
-          >
-            <h2 className="text-4xl font-bold text-primary mb-4">
-              Awards and Accolades
-            </h2>
-            <p className="text-muted-foreground">
-              Recognized for excellence in international education consulting
-            </p>
-          </motion.div>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-            {awards.map((award, i) => (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, scale: 0.8 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.6, delay: i * 0.1 }}
-                viewport={{ once: true }}
-              >
-                <Card className="bg-white border-2 border-orange-500 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 h-full">
-                  <CardContent className="px-4 text-center space-y-3">
-                    <div className="h-24 w-24 mx-auto rounded-lg overflow-hidden">
-                      <img
-                        src={award.image}
-                        alt={award.title}
-                        className="w-full h-full object-cover"
-                      />
-                    </div>
-                    <h4 className="font-semibold text-sm">{award.title}</h4>
-                    <p className="text-xs text-muted-foreground">
-                      {award.year}
-                    </p>
-                  </CardContent>
-                </Card>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </motion.section>{" "}
       <motion.section
         id="contact"
         className="py-20 bg-muted/80"
